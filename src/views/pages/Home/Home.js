@@ -4,7 +4,7 @@ import MainHeader from "./../../components/MainHeader";
 
 function Home() {
   return (
-    <div>
+    <div className="home">
       <MainHeader />
       <h1>Home page</h1>
     </div>

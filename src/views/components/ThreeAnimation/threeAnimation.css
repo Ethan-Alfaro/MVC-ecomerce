@@ -1,0 +1,9 @@
+.threeAnimation {
+  position: relative;
+  top: 0;
+  left: 0;
+  outline: none;
+  mix-blend-mode: exclusion;
+	z-index: auto;
+	background-color: aqua;
+}

@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import * as THREE from "three";
-import "./threeAnimation.css";
+import "./GuitarModel.css";
+import * as dat from "dat.gui";
 
 let scene, camera, renderer, cube;
 
-function ThreeAnimation() {
+function GuitarModel() {
   useEffect(() => {
-    document.querySelector("section.threeAnimation").appendChild(init());
+    document.getElementById("webgl").appendChild(init());
 		animate();
   });
 
@@ -51,7 +52,7 @@ function ThreeAnimation() {
     renderer.render(scene, camera);
   }
 
-  return <section className="threeAnimation"></section>;
+  return <div id="webgl"></div>;
 }
 
-export default ThreeAnimation;
+export default GuitarModel;

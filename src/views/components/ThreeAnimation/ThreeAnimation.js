@@ -24,7 +24,6 @@ function ThreeAnimation() {
     //renderer
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
-    // document.body.appendChild(renderer.domElement);
 
     //add geometry
     let geometry = new THREE.BoxGeometry();

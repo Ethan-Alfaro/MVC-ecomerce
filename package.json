@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/config/app-config.js",
-    "dev": "nodemon --trace-warnings src/config/app-config.js",
-    "webpack": "webpack --mode development --watch"
+    "server": "nodemon --trace-warnings src/config/app-config.js",
+    "react": "webpack --mode development --watch"
   },
   "repository": {
     "type": "git",

@@ -5,9 +5,11 @@ import "./mainHeader.css";
 
 function MainHeader() {
   const [isLogged, setIsLogged] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     setIsLogged(true);
+    setIsAdmin(true);
   }, []);
 
   return (
@@ -25,7 +27,7 @@ function MainHeader() {
           <NavLink to="/products">
             <p className="text-light">Products</p>
           </NavLink>
-          {isLogged && (
+          {isLogged && isAdmin && (
             <NavLink to="/dashboard">
               <p className="text-light">Dashboard</p>
             </NavLink>
@@ -72,7 +74,7 @@ function MainHeader() {
               <div className="user__picture--container">
                 <img
                   className="user__picture"
-                  src="assets/user_pictures/erick_noiztbander.png"
+                  src="assets/user_pictures/profile_picture.png"
                   alt="user-picture"
                 />
               </div>

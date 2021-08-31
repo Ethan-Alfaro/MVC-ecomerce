@@ -23,7 +23,9 @@ app.use(express.json());
 // routes
 app.use("/", require("./../routes/home-router"));
 app.use("/products", require("./../routes/product-router"));
-// app.use("/profile", require("./../routes/profile-router"));
+app.use("/profile", require("./../routes/profile-router"));
+app.use("/dashboard", require("./../routes/dashboard-router"));
+app.use("/cart", require("./../routes/cart-router"));
 
 // satic files
 app.use(express.static(path.join(__dirname, "/../../public")));

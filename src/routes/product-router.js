@@ -23,21 +23,5 @@ router.get("/get-products", async (req, res) => {
   res.json(foundProducts);
 });
 
-// Create data to DB
-router.post("/create-product", async (req, res) => {
-  const { name, description, price, stock, img } = req.body;
-  console.log(req.body);
-  newproduct = new productModel({
-    name: name,
-    description: description,
-    price: price,
-    stock: stock,
-    img: img,
-  });
-  await newproduct.save();
-  res.json({
-    message: "Received!",
-  });
-});
 
 module.exports = router;

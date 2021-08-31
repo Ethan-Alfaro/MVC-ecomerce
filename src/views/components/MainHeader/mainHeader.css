@@ -31,7 +31,7 @@
   width: 55px;
   height: 55px;
   overflow: hidden;
-  border: 2px solid rgb(240, 210, 42);
+  border: 2px solid rgb(255, 255, 255);
 }
 .user__picture{
   width: 100%;

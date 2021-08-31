@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 
 import "./App.css";
 
@@ -17,7 +17,7 @@ function App() {
         <div className="nav">
             <Link to='/profile'><p className="nav-items">Profile</p></Link>
             <Link to='/dashboard'><p className="nav-items">Dashboard</p></Link>
-            <Link to='/'><p className="nav-items">Shopping Center</p></Link>
+            <Link to='/'><p className="nav-items">Shopping Center</p></Link> 
             <Link to='/cart'><p className="nav-items">ShoppingCart</p></Link>
             <Link to='/orders'><p className="nav-items">Orders</p></Link>
             <Link to='/products'><p className="nav-items">Products</p></Link>

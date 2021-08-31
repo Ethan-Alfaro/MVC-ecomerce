@@ -8,7 +8,7 @@ function Products() {
   }, []);
 
   function fetchProducts() {
-    fetch("/products/")
+    fetch("/products/get-products")
       .then((res) => {
         return res.json();
       })

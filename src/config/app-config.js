@@ -10,16 +10,19 @@ require("./database");
 
 // congif
 app.set("port", process.env.PORT || 4000);
+app.set("views", path.join(__dirname, "/../views"));
+app.set("DIST_DIR", path.join(__dirname, "/../views/dist"));
+app.set("HTML_FILE", path.join(app.get("DIST_DIR"), "index.html"));
 
 // middlewares
-// morgan nos da informacion de los tipos de request que hacemos. tipo POST, GET, PUT, DELETE
+// morgan nos da informacion en la consola del terminal de los tipos de request que hacemos. tipo POST, GET, PUT, DELETE
 app.use(morgan("dev"));
 // Esto es un middleware que comprueba si el mensage que recive desde el cliente (en formularios), es en formato Json.
 app.use(express.json());
 
 // routes
-// app.use("/", require("./../routes/home-router"));
-app.use("/", require("./../routes/product-router"));
+app.use("/", require("./../routes/home-router"));
+app.use("/products", require("./../routes/product-router"));
 // app.use("/profile", require("./../routes/profile-router"));
 
 // satic files

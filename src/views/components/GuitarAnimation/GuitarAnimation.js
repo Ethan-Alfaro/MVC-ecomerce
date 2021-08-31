@@ -4,7 +4,7 @@ import "./guitarAnimation.css";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import gsap from "gsap";
 
-let scene, camera, renderer, sphere, tl;
+let scene, camera, renderer, tl;
 
 function GuitarAnimation() {
   useEffect(() => {
@@ -24,7 +24,7 @@ function GuitarAnimation() {
     gltfLoader.load(
       "assets/3d-models/guitarrisha/guitarrisha.glb",
       (guitar) => {
-        guitar.scene.scale.set(0.2, 0.2, 0.2);
+        guitar.scene.scale.set(1, 1, 1);
         guitar.scene.position.set(0, 3, -3);
         scene.add(guitar.scene);
 
@@ -36,7 +36,7 @@ function GuitarAnimation() {
     );
 
     // Lights
-    const pointLight = new THREE.PointLight(0xffffff, 1);
+    const pointLight = new THREE.PointLight(0xffffff, 3);
     pointLight.position.x = 2;
     pointLight.position.y = 3;
     pointLight.position.z = 4;
@@ -44,7 +44,7 @@ function GuitarAnimation() {
 
     const sizes = {
       width: window.innerWidth,
-      height: window.innerHeight ,
+      height: window.innerHeight,
     };
 
     window.addEventListener("resize", () => {
@@ -63,7 +63,7 @@ function GuitarAnimation() {
 
     //add camera
     camera = new THREE.PerspectiveCamera(
-      75,
+      45,
       sizes.width / sizes.height,
       0.1,
       100

@@ -11,13 +11,14 @@ router.get("/products", async (req, res) => {
 
 // Create data to DB
 router.post("/product/create-product", async (req, res) => {
-  const { name, description, price, stock } = req.body;
+  const { name, description, price, stock, img } = req.body;
   console.log(req.body);
   newproduct = new productModel({
     name: name,
     description: description,
     price: price,
     stock: stock,
+    img: img,
   });
   await newproduct.save();
   res.json({

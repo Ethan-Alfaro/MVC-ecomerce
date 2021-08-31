@@ -1,7 +1,12 @@
 import React from "react";
-
-
 import "./App.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 // pages to render depending URL
 import Home from "./pages/Home";
@@ -19,9 +24,11 @@ function App() {
             <Link to='/dashboard'><p className="nav-items">Dashboard</p></Link>
             <Link to='/'><p className="nav-items">Shopping Center</p></Link> 
             <Link to='/cart'><p className="nav-items">ShoppingCart</p></Link>
-            <Link to='/orders'><p className="nav-items">Orders</p></Link>
             <Link to='/products'><p className="nav-items">Products</p></Link>
         </div>
+
+
+
 
         <Switch>
       
@@ -33,9 +40,6 @@ function App() {
           </Route>
           <Route path="/cart">
             <ShoppingCart />
-          </Route>
-          <Route path="/orders">
-            <Orders />
           </Route>
           <Route path="/products">
             <Products/>

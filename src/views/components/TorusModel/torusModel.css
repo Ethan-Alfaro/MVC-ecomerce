@@ -1,0 +1,5 @@
+.torusModel {
+  border: 5px solid rgb(202, 202, 202);
+  max-height: 1000px;
+  overflow: hidden;
+}

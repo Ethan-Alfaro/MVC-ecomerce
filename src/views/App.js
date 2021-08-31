@@ -1,12 +1,6 @@
 import React from "react";
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // pages to render depending URL
 import Home from "./pages/Home";
@@ -20,20 +14,26 @@ function App() {
     <div className="App">
       <Router>
         <div className="nav">
-            <Link to='/profile'><p className="nav-items">Profile</p></Link>
-            <Link to='/dashboard'><p className="nav-items">Dashboard</p></Link>
-            <Link to='/'><p className="nav-items">Shopping Center</p></Link> 
-            <Link to='/cart'><p className="nav-items">ShoppingCart</p></Link>
-            <Link to='/products'><p className="nav-items">Products</p></Link>
+          <Link to="/profile">
+            <p className="nav-items">Profile</p>
+          </Link>
+          <Link to="/dashboard">
+            <p className="nav-items">Dashboard</p>
+          </Link>
+          <Link to="/">
+            <p className="nav-items">Shopping Center</p>
+          </Link>
+          <Link to="/cart">
+            <p className="nav-items">ShoppingCart</p>
+          </Link>
+          <Link to="/products">
+            <p className="nav-items">Products</p>
+          </Link>
         </div>
 
-
-
-
         <Switch>
-      
           <Route path="/profile">
-            <Profile/>
+            <Profile />
           </Route>
           <Route path="/dashboard">
             <Dashboard />
@@ -42,15 +42,13 @@ function App() {
             <ShoppingCart />
           </Route>
           <Route path="/products">
-            <Products/>
+            <Products />
           </Route>
           <Route path="/">
-            <Home/>
+            <Home />
           </Route>
-          
         </Switch>
       </Router>
-
     </div>
   );
 }

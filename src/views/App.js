@@ -1,6 +1,9 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// Header
+import MainHeader from "./components/MainHeader/Mainheader";
 
 // pages to render depending URL
 import Home from "./pages/Home";
@@ -13,24 +16,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div className="nav">
-          <Link to="/profile">
-            <p className="nav-items">Profile</p>
-          </Link>
-          <Link to="/dashboard">
-            <p className="nav-items">Dashboard</p>
-          </Link>
-          <Link to="/">
-            <p className="nav-items">Shopping Center</p>
-          </Link>
-          <Link to="/cart">
-            <p className="nav-items">ShoppingCart</p>
-          </Link>
-          <Link to="/products">
-            <p className="nav-items">Products</p>
-          </Link>
-        </div>
-
+        <MainHeader />
         <Switch>
           <Route path="/profile">
             <Profile />

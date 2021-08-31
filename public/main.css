@@ -1,0 +1,121 @@
+/*!*********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/App.css ***!
+  \*********************************************************************/
+*,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*::-webkit-scrollbar {
+  background-color: rgb(0, 0, 0);
+  width: 10px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(206, 206, 206);
+  border-radius: 10px;
+}
+
+.App {
+  width: 100vw;
+  min-height: 100vh;
+  /*  background-image: url('./assets/fondo-ecomercee.jpeg');*/
+  background-color: rgb(255, 255, 255);
+}
+
+/*!**************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/MainHeader/mainHeader.css ***!
+  \**************************************************************************************************/
+.nav{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.nav-items{
+  color: white;
+  margin-left: 20px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.navigation__logo--container{
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  margin: 0;
+}
+.navigation__logo{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user__picture--container{
+  border-radius: 50px;
+  width: 55px;
+  height: 55px;
+  overflow: hidden;
+  border: 2px solid rgb(255, 255, 255);
+}
+.user__picture{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/*!**********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/ThreeAnimation/threeAnimation.css ***!
+  \**********************************************************************************************************/
+.threeAnimation {
+  position: relative;
+  top: 0;
+  left: 0;
+  outline: none;
+  mix-blend-mode: exclusion;
+	z-index: auto;
+	background-color: aqua;
+}
+
+/*!**************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/TorusModel/torusModel.css ***!
+  \**************************************************************************************************/
+.torusModel {
+  border: 5px solid rgb(202, 202, 202);
+  max-height: 1000px;
+  overflow: hidden;
+}
+
+/*!************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/BallModel/ballModel.css ***!
+  \************************************************************************************************/
+.ballModel {
+  outline: none;
+  /* mix-blend-mode: exclusion; */
+}
+
+
+/*!************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/GuitarAnimation/guitarAnimation.css ***!
+  \************************************************************************************************************/
+.guitarAnimation {
+  width: 100%;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
+}
+.guitarAnimation canvas {
+  width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+

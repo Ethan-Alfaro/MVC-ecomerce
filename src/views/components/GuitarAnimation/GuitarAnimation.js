@@ -3,38 +3,44 @@ import * as THREE from "three";
 import "./guitarAnimation.css";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import gsap from "gsap";
+import { _isUndefined } from "gsap/gsap-core";
 
-let scene, camera, renderer, sphere, tl;
+let scene, camera, renderer, tl, guitarModel;
 
 function GuitarAnimation() {
   useEffect(() => {
     document.querySelector("section.guitarAnimation").appendChild(init());
-    animate();
+    // animate();
   });
 
   function init() {
-
-		const gltfLoader = new GLTFLoader();
+    const gltfLoader = new GLTFLoader();
 
     //creating scene
     scene = new THREE.Scene();
 
-		tl = gsap.timeline();
+    tl = gsap.timeline();
 
     // the guitar
-    gltfLoader.load("assets/3d-models/guitarrisha/guitarrisha.glb", (guitar) => {
-      guitar.scene.scale.set(0.2, 0.2, 0.2);
-      guitar.scene.position.set(0, 3, -3);
-      scene.add(guitar.scene);
+    gltfLoader.load(
+      "assets/3d-models/guitarrisha/guitarrisha.glb",
+      (guitar) => {
+        guitar.scene.scale.set(1, 1, 1);
+        guitar.scene.position.set(0, 2, -3);
+        scene.add(guitar.scene);
 
-      tl.to(guitar.scene.scale, { x: 0.3, y: 0.3, z: 0.3, duration: 2 });
-      tl.to(guitar.scene.rotation, { y: 6.4, duration: 2 }, "-=2");
-      tl.to(guitar.scene.position, { x: -1 }, "-=2");
-      tl.to(guitar.scene.position, { x: 2, duration: 2 });
-    });
+        tl.to(guitar.scene.scale, { x: 0.22, y: 0.22, z: 0.22, duration: 2 });
+        tl.to(guitar.scene.rotation, { y: 5, duration: 2 }, "-=2");
+        tl.to(guitar.scene.position, { x: -1 }, "-=2");
+        tl.to(guitar.scene.position, { x: 2, duration: 2 });
+
+        guitarModel = guitar.scene.children[0];
+        animate();
+      }
+    );
 
     // Lights
-    const pointLight = new THREE.PointLight(0xffffff, 1);
+    const pointLight = new THREE.PointLight(0xffffff, 3);
     pointLight.position.x = 2;
     pointLight.position.y = 3;
     pointLight.position.z = 4;
@@ -61,7 +67,7 @@ function GuitarAnimation() {
 
     //add camera
     camera = new THREE.PerspectiveCamera(
-      75,
+      45,
       sizes.width / sizes.height,
       0.1,
       100
@@ -78,9 +84,35 @@ function GuitarAnimation() {
     return renderer.domElement;
   }
 
+  const clock = new THREE.Clock();
+  // this is for make the geometry response on mouseMove on the screen
+  document.addEventListener("mousemove", onDocumentMouseMove);
+  let mouseX = 0;
+  let mouseY = 0;
+  let targetX = 0;
+  let targetY = 0;
+  const windowHalfX = window.innerHeight / 2;
+  const windowHalfY = window.innerHeight / 2;
+  function onDocumentMouseMove(event) {
+    mouseX = event.clientX - windowHalfX;
+    mouseY = event.clientY - windowHalfY;
+  }
+
   //animation
   function animate() {
     requestAnimationFrame(animate);
+
+    const elapsedTime = clock.getElapsedTime();
+
+    targetX = mouseX * 0.001;
+    targetY = mouseY * 0.001;
+
+    // Update objects
+    guitarModel.rotation.y = 0.5 * elapsedTime;
+
+    guitarModel.rotation.y += 0.5 * (targetX - guitarModel.rotation.y);
+    guitarModel.rotation.x += 0.5 * (targetY - guitarModel.rotation.x);
+    guitarModel.position.z += -0.5 * (targetY - guitarModel.rotation.x);
 
     renderer.render(scene, camera);
   }

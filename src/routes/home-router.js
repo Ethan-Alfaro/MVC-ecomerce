@@ -4,8 +4,8 @@ const path = require("path");
 const router = Router();
 const app = express();
 
-app.set("DIST_DIR", path.join(__dirname, "/../views/dist"));
-app.set("HTML_FILE", path.join(app.get("DIST_DIR"), "index.html"));
+app.set("PUBLIC_DIR", path.join(__dirname, "/../../public"));
+app.set("HTML_FILE", path.join(app.get("PUBLIC_DIR"), "index.html"));
 
 // read DB
 router.get("/", async (req, res) => {

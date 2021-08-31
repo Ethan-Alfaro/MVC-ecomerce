@@ -11,8 +11,8 @@ require("./database");
 // congif
 app.set("port", process.env.PORT || 4000);
 app.set("views", path.join(__dirname, "/../views"));
-app.set("DIST_DIR", path.join(__dirname, "/../views/dist"));
-app.set("HTML_FILE", path.join(app.get("DIST_DIR"), "index.html"));
+app.set("PUBLIC_DIR", path.join(__dirname, "/../../public"));
+app.set("HTML_FILE", path.join(app.get("PUBLIC_DIR"), "index.html"));
 
 // middlewares
 // morgan nos da informacion en la consola del terminal de los tipos de request que hacemos. tipo POST, GET, PUT, DELETE

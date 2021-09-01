@@ -42,8 +42,9 @@ export default class Login extends Component {
   render() {
     return (
       <div className="form-group mt-5">
+        <img href="assets/login/robot.png" />
         <form onSubmit={this.handleSubmit}>
-          <label htmlfor="exampleInputEmail1" className="form-label mt-4">
+          <label htmlFor="exampleInputEmail1" className="form-label mt-4">
             Email address
           </label>
           <input
@@ -56,7 +57,7 @@ export default class Login extends Component {
             onChange={this.handleChange}
             required
           />
-          <label for="exampleInputPassword1" className="form-label mt-4">
+          <label htmlFor="exampleInputPassword1" className="form-label mt-4">
             Password
           </label>
           <input
@@ -76,19 +77,3 @@ export default class Login extends Component {
     );
   }
 }
-
-// function Login() {
-//   return (
-//     <form>
-//       <div className="form-group mt-5">
-//         <label for="exampleInputEmail1" class="form-label mt-4">Email address</label>
-//         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-//         <label for="exampleInputPassword1" class="form-label mt-4">Password</label>
-//         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required/>
-//         <button type="submit" className="btn btn-dark mt-4">Login</button>
-//       </div>
-//     </form>
-//   );
-// }
-
-// export default Login;

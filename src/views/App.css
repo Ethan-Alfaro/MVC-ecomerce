@@ -9,21 +9,18 @@ h6 {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
-*::-webkit-scrollbar {
+body::-webkit-scrollbar {
   background-color: rgb(0, 0, 0);
   width: 10px;
 }
-*::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
   background-color: rgb(206, 206, 206);
   border-radius: 10px;
 }
 
-.App {
+.app {
   width: 100vw;
   min-height: 100vh;
-  /*  background-image: url('./assets/fondo-ecomercee.jpeg');*/
-  background-color: rgb(255, 255, 255);
 }

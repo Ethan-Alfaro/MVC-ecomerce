@@ -41,8 +41,10 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="form-group mt-5">
-        <img href="assets/login/robot.png" />
+      <div className="form-group mt-2">
+        <div className="imageLogin">
+          <img className="imageLogin" src="/assets/login/robot.png" />
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="exampleInputEmail1" className="form-label mt-4">
             Email address

@@ -42,7 +42,10 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <div className="form-group mt-5">
+      <div className="form-group mt-2">
+        <div className="imageLogin">
+          <img className="imageLogin" src="/assets/signup/robot-signup.png" />
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="exampleInputPassword1" className="form-label mt-4">
             Name

@@ -1,0 +1,11 @@
+
+.wrap{
+    width: 90vw;
+    height: 80vh;
+    margin-left: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 20px;
+    box-sizing: border-box;
+}

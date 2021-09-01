@@ -8,7 +8,6 @@ import GuitarAnimation from "../../components/GuitarAnimation";
 function Home() {
   return (
     <div className="home">
-      <h1>Home page</h1>
       <GuitarAnimation />
       {/* <BallModel /> */}
       {/* <ThreeAnimation /> */}

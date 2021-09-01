@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-
+import Card from '../../components/ProductCard/card.js';
+import './products.css'
 function Products() {
   const [productsArray, setProductsArray] = useState([]);
 
@@ -22,9 +23,11 @@ function Products() {
   }
 
   return (
-    <>
-      <h1>Products page</h1>
-    </>
+    <div className="wrap">
+      <Card/>
+      <Card/>
+      <Card/>
+    </div>
   );
 }
 

@@ -4,10 +4,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Header
 import MainHeader from "./components/MainHeader/Mainheader";
-import MainFooter from "./components/MainFooter/MainFooter";
 // pages to render depending URL
 import Home from "./pages/Home";
 import Profile from "./pages/Profile/Profile";
+import Login from "./pages/Profile/Login";
+import Signup from "./pages/Profile/Signup";
+import UpdatePassword from "./pages/Profile/UpdatePassword";
 import Products from "./pages/Products";
 import ShoppingCart from "./pages/ShoppingCart";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -18,6 +20,12 @@ function App() {
       <Router>
         <MainHeader />
         <Switch>
+          <Route path="/profile/register">
+            <Signup />
+          </Route>
+          <Route path="/profile/login">
+            <Login />
+          </Route>
           <Route path="/profile">
             <Profile />
           </Route>

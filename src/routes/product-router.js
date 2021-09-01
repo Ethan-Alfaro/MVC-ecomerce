@@ -1,29 +1,27 @@
 const { Router } = require("express");
 const router = Router();
+const express = require("express");
+const path = require("path");
+const app = express();
 
 const productModel = require("../models/product-model");
 
+app.set("PUBLIC_DIR", path.join(__dirname, "/../../public"));
+app.set("HTML_FILE", path.join(app.get("PUBLIC_DIR"), "index.html"));
+
 // read Data from DB
-router.get("/products", async (req, res) => {
+router.get("/", async (req, res) => {
+  res.sendFile(app.get("HTML_FILE"), function(err){
+    if(err){
+       res.status(500).send(err);
+    }
+ });
+});
+
+router.get("/get-products", async (req, res) => {
   const foundProducts = await productModel.find();
   res.json(foundProducts);
 });
 
-// Create data to DB
-router.post("/product/create-product", async (req, res) => {
-  const { name, description, price, stock, img } = req.body;
-  console.log(req.body);
-  newproduct = new productModel({
-    name: name,
-    description: description,
-    price: price,
-    stock: stock,
-    img: img,
-  });
-  await newproduct.save();
-  res.json({
-    message: "Received!",
-  });
-});
 
 module.exports = router;

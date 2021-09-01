@@ -1,0 +1,130 @@
+/*!*********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/app.css ***!
+  \*********************************************************************/
+*,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+  background-color: rgb(0, 0, 0);
+  width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(206, 206, 206);
+  border-radius: 10px;
+}
+
+.app {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+/*!**************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/MainHeader/mainHeader.css ***!
+  \**************************************************************************************************/
+.nav{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.nav-items{
+  color: white;
+  margin-left: 20px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.navigation__logo--container{
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  margin: 0;
+}
+.navigation__logo{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user__picture--container{
+  border-radius: 50px;
+  width: 55px;
+  height: 55px;
+  overflow: hidden;
+  border: 2px solid rgb(255, 255, 255);
+}
+.user__picture{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/*!**************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/MainFooter/mainFooter.css ***!
+  \**************************************************************************************************/
+.mainFooter {
+  background-color: rgb(66, 41, 41);
+  width: 100vw;
+  padding: 10px;
+}
+
+/*!************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/GuitarAnimation/guitarAnimation.css ***!
+  \************************************************************************************************************/
+.guitarAnimation {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: auto;
+}
+.guitarAnimation canvas {
+  width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/*!********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/ParticlesBackground/particlesBackground.css ***!
+  \********************************************************************************************************************/
+.particlesBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+  z-index: -1;
+}
+
+/*!*********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/pages/Home/home.css ***!
+  \*********************************************************************************/
+.title__content--container {
+  position: absolute;
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3em;
+}
+.title__content {
+  width: 100%;
+  padding-right: 10%;
+  padding-top: 3em;
+  position: relative;
+}
+.title__content h1 {
+  padding: 4px 0px;
+}
+

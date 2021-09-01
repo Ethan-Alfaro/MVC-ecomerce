@@ -1,10 +1,10 @@
 import React from "react";
-import "./App.css";
+import "./app.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // Header
 import MainHeader from "./components/MainHeader/Mainheader";
-
+import MainFooter from "./components/MainFooter/MainFooter";
 // pages to render depending URL
 import Home from "./pages/Home";
 import Profile from "./pages/Profile/Profile";
@@ -14,7 +14,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Router>
         <MainHeader />
         <Switch>

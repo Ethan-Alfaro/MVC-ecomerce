@@ -1,5 +1,5 @@
 /*!*********************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/App.css ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/app.css ***!
   \*********************************************************************/
 *,
 p,
@@ -12,23 +12,20 @@ h6 {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   box-sizing: border-box;
-  overflow-x: hidden;
 }
 
-*::-webkit-scrollbar {
+body::-webkit-scrollbar {
   background-color: rgb(0, 0, 0);
   width: 10px;
 }
-*::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
   background-color: rgb(206, 206, 206);
   border-radius: 10px;
 }
 
-.App {
+.app {
   width: 100vw;
   min-height: 100vh;
-  /*  background-image: url('./assets/fondo-ecomercee.jpeg');*/
-  background-color: rgb(255, 255, 255);
 }
 
 /*!**************************************************************************************************!*\
@@ -74,48 +71,60 @@ h6 {
   height: 100%;
   object-fit: cover;
 }
-/*!**********************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/ThreeAnimation/threeAnimation.css ***!
-  \**********************************************************************************************************/
-.threeAnimation {
-  position: relative;
-  top: 0;
-  left: 0;
-  outline: none;
-  mix-blend-mode: exclusion;
-	z-index: auto;
-	background-color: aqua;
-}
-
 /*!**************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/TorusModel/torusModel.css ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/MainFooter/mainFooter.css ***!
   \**************************************************************************************************/
-.torusModel {
-  border: 5px solid rgb(202, 202, 202);
-  max-height: 1000px;
-  overflow: hidden;
+.mainFooter {
+  background-color: rgb(66, 41, 41);
+  width: 100vw;
+  padding: 10px;
 }
-
-/*!************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/BallModel/ballModel.css ***!
-  \************************************************************************************************/
-.ballModel {
-  outline: none;
-  /* mix-blend-mode: exclusion; */
-}
-
 
 /*!************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/GuitarAnimation/guitarAnimation.css ***!
   \************************************************************************************************************/
 .guitarAnimation {
+  height: 100%;
   width: 100%;
   overflow: hidden;
-  background-color: rgb(255, 255, 255);
+  z-index: auto;
 }
 .guitarAnimation canvas {
   width: 100%;
   max-height: 100%;
   overflow: hidden;
+}
+
+/*!********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/ParticlesBackground/particlesBackground.css ***!
+  \********************************************************************************************************************/
+.particlesBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+  z-index: -1;
+}
+
+/*!*********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/pages/Home/home.css ***!
+  \*********************************************************************************/
+.title__content--container {
+  position: absolute;
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3em;
+}
+.title__content {
+  width: 100%;
+  padding-right: 10%;
+  padding-top: 3em;
+  position: relative;
+}
+.title__content h1 {
+  padding: 4px 0px;
 }
 

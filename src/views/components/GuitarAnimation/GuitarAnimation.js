@@ -47,8 +47,8 @@ function GuitarAnimation() {
     scene.add(pointLight);
 
     const sizes = {
-      width: window.innerWidth,
-      height: window.innerHeight,
+      width: window.innerWidth -160,
+      height: window.innerHeight - 160,
     };
 
     window.addEventListener("resize", () => {
@@ -57,11 +57,11 @@ function GuitarAnimation() {
       sizes.height = window.innerHeight;
 
       // Update camera
-      camera.aspect = sizes.width / sizes.height;
+      camera.aspect = sizes.width/ sizes.height;
       camera.updateProjectionMatrix();
 
       // Update renderer
-      renderer.setSize(sizes.width, sizes.height);
+      renderer.setSize(sizes.width - 160, sizes.height - 160);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     });
 
@@ -77,7 +77,7 @@ function GuitarAnimation() {
     camera.position.z = 3;
 
     //renderer
-    renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(sizes.width, sizes.height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 

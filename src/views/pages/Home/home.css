@@ -1,0 +1,18 @@
+.title__content--container {
+  position: absolute;
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3em;
+}
+.title__content {
+  width: 100%;
+  padding-right: 10%;
+  padding-top: 3em;
+  position: relative;
+}
+.title__content h1 {
+  padding: 4px 0px;
+}

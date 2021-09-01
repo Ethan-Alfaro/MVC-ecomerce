@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Ethan-Alfaro/MVC-ecomerce#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "dat.gui": "^0.7.7",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",

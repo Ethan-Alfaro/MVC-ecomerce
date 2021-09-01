@@ -42,7 +42,7 @@ export default class Signup extends Component {
 
   render() {
     return (
-      <div className="form-group mt-2">
+      <div className="form-group mt-2 mb-5">
         <div className="imageLogin">
           <img className="imageLogin" src="/assets/signup/robot-signup.png" />
         </div>

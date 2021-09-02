@@ -1,37 +1,31 @@
 import React from "react";
-import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "./app.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+// Header
+import MainHeader from "./components/MainHeader/Mainheader";
 // pages to render depending URL
 import Home from "./pages/Home";
 import Profile from "./pages/Profile/Profile";
+import Login from "./pages/Profile/Login";
+import Signup from "./pages/Profile/Signup";
+import UpdatePassword from "./pages/Profile/UpdatePassword";
 import Products from "./pages/Products";
 import ShoppingCart from "./pages/ShoppingCart";
 import Dashboard from "./pages/Dashboard/Dashboard";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <Router>
-        <div className="nav">
-          <Link to="/profile">
-            <p className="nav-items">Profile</p>
-          </Link>
-          <Link to="/dashboard">
-            <p className="nav-items">Dashboard</p>
-          </Link>
-          <Link to="/">
-            <p className="nav-items">Shopping Center</p>
-          </Link>
-          <Link to="/cart">
-            <p className="nav-items">ShoppingCart</p>
-          </Link>
-          <Link to="/products">
-            <p className="nav-items">Products</p>
-          </Link>
-        </div>
-
+        <MainHeader />
         <Switch>
+          <Route path="/profile/register">
+            <Signup />
+          </Route>
+          <Route path="/profile/login">
+            <Login />
+          </Route>
           <Route path="/profile">
             <Profile />
           </Route>

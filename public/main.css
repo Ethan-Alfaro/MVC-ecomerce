@@ -1,0 +1,306 @@
+/*!*********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/app.css ***!
+  \*********************************************************************/
+*,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+  background-color: rgb(0, 0, 0);
+  width: 10px;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(206, 206, 206);
+  border-radius: 10px;
+}
+
+.app {
+  width: 100vw;
+  min-height: 100vh;
+}
+
+/*!**************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/MainHeader/mainHeader.css ***!
+  \**************************************************************************************************/
+.nav{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.nav-items{
+  color: white;
+  margin-left: 20px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.navigation__logo--container{
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  margin: 0;
+}
+.navigation__logo{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user__picture--container{
+  border-radius: 50px;
+  width: 55px;
+  height: 55px;
+  overflow: hidden;
+  border: 2px solid rgb(255, 255, 255);
+}
+.user__picture{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/*!**************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/MainFooter/mainFooter.css ***!
+  \**************************************************************************************************/
+.mainFooter {
+  background-color: rgb(66, 41, 41);
+  width: 100vw;
+  padding: 10px;
+}
+
+/*!************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/GuitarAnimation/guitarAnimation.css ***!
+  \************************************************************************************************************/
+.guitarAnimation {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  z-index: auto;
+}
+.guitarAnimation canvas {
+  width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+/*!********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/components/ParticlesBackground/particlesBackground.css ***!
+  \********************************************************************************************************************/
+.particlesBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+  z-index: -1;
+}
+
+/*!*********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/pages/Home/home.css ***!
+  \*********************************************************************************/
+.title__content--container {
+  position: absolute;
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3em;
+}
+.title__content {
+  width: 100%;
+  padding-right: 10%;
+  padding-top: 3em;
+  position: relative;
+}
+.title__content h1 {
+  padding: 4px 0px;
+}
+
+/*!*****************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/pages/Products/products.css ***!
+  \*****************************************************************************************/
+
+.wrap{
+    width: 90vw;
+    height: 80vh;
+    margin-top: 100px; 
+    margin-left: 5%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+    color: black;
+    padding: 20px;
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+.tarjeta-wrap{
+    margin: 10px;
+    perspective: 1000;
+    -webkit-perspective: 1000;
+}
+.tarjeta{
+    width: 300px;
+    height: 350px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: .7s ease;
+    -webkit-box-shadow: 2px 4px 13px -1px rgb(68, 68, 68);
+    -moz-box-shadow: 2px 4px 13px -1px rgb(68, 68, 68);
+    box-shadow: 2px 4px 13px -1px rgb(68, 68, 68);
+    border-radius: 15px;
+
+}
+.adelante, .atras{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+}
+
+.atras{
+    transform: rotateY(180deg);
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: rgb(29, 29, 29);
+    background-color: #fff;
+    box-shadow: none;
+    border: none;
+}
+.atras-title{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+.atras-description{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;    
+}
+.atras-buy{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+         
+}
+.adelante img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+
+}
+.tarjeta-wrap:hover .tarjeta{
+    transform: rotateY(180deg);
+    box-shadow: none;
+    border: none;
+}
+.buyButton{
+    position: relative;
+    display: inline-block;
+    padding: 7.5px 15px;
+    color:black;
+    letter-spacing: 4px;
+    font-size: 24px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.2s;
+}
+.buyButton:hover{
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 5px black, 0 0 20px
+    black, 0 0 40px black;
+    transition-delay: 1s;
+}
+
+.buyButton span {
+    position: absolute;
+    display: block;
+}
+#span1{
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, black);
+}
+
+.buyButton:hover #span1{
+    left: 100%;
+    transition: 1s;
+}
+
+#span3{
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, black);
+}
+
+.buyButton:hover #span3{
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+#span2{
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, black);
+}
+
+.buyButton:hover #span2{
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+
+#span4{
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, black);
+}
+
+.buyButton:hover #span4{
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}

@@ -128,3 +128,262 @@ body::-webkit-scrollbar-thumb {
   padding: 4px 0px;
 }
 
+/*!*************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/pages/Profile/login.css ***!
+  \*************************************************************************************/
+.form-group {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.imageLogin {
+  margin: 0 auto;
+  width: 100%;
+}
+
+/*!****************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/pages/Dashboard/topbar.css ***!
+  \****************************************************************************************/
+.topbar {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+}
+
+.topbarWrapper {
+  height: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbarRight {
+  display: flex;
+  align-items: center;
+}
+
+.topbarIcons {
+  cursor: pointer;
+  margin-right: 10px;
+  color: rgb(77, 76, 76);
+}
+
+.topbarAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/*!*****************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/pages/Dashboard/sidebar.css ***!
+  \*****************************************************************************************/
+.sidebar {
+  flex: 1;
+  height: calc(100vh - 50px);
+  position: sticky;
+  top: 50px;
+}
+
+.sidebarMenu {
+  margin-bottom: 10px;
+}
+
+.sidebarTitle {
+  color: rgb(77, 76, 76);
+  font-size: 0.8em;
+}
+
+.sidebarList {
+  list-style: none;
+}
+
+.sidebarlistItem {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.sidebarlistItem.active,
+.sidebarlistItem:hover {
+  background-color: rgb(206, 222, 252);
+}
+
+.iconsLeft {
+  margin-right: 5px;
+}
+
+/*!*********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/pages/Dashboard/featureinfo.css ***!
+  \*********************************************************************************************/
+.featureInfo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.featureItem {
+  flex: 1;
+  margin: 0px 30px;
+  padding: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.featureTitle {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.featureMoneyContainer {
+  margin: 10px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.featureMoney {
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+.featureMoneyRate {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.featureIcon {
+  color: rgb(56, 177, 56);
+}
+
+.featureCompareRevenue {
+  color: rgb(77, 76, 76);
+  opacity: 0.8;
+}
+
+/*!****************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/pages/Dashboard/charts.css ***!
+  \****************************************************************************************/
+.chart {
+  padding: 20px;
+  margin: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.chartTitle {
+  margin-bottom: 20px;
+  color: rgb(77, 76, 76);
+  font-size: 1em;
+}
+
+/*!******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/pages/Dashboard/widgetsm.css ***!
+  \******************************************************************************************/
+.widgetSm {
+  flex: 1;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.widgetSmTitle {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.widgetSmList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.widgetSmImg {
+  font: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.widgetSmListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.widgetSmUser {
+  padding: 12px;
+}
+
+.widgetSmUserName {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.widgetSmUserJob {
+  font-size: 0.7em;
+  padding-left: 5px;
+}
+
+/*!******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/pages/Dashboard/widgetxl.css ***!
+  \******************************************************************************************/
+.widgetXl {
+  flex: 2;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.widgetXlTh {
+  font-size: 0.9em;
+}
+
+.widgetXlTitle {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.widgetXlImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.tableWidgetXl {
+  width: 100%;
+  border-spacing: 20px;
+}
+.widgetXlTr {
+  padding-top: 10px;
+}
+.widgetXlTh {
+  text-align: left;
+}
+
+/*!********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/pages/Dashboard/mainheader.css ***!
+  \********************************************************************************************/
+.mainHeader {
+  flex: 4;
+}
+
+.widgets {
+  display: flex;
+  margin: 20px;
+  /* justify-content: space-between; */
+}
+
+/*!*******************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/pages/Dashboard/dashboard.css ***!
+  \*******************************************************************************************/
+.container {
+  display: flex;
+}
+

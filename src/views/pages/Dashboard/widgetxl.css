@@ -1,0 +1,34 @@
+.widgetXl {
+  flex: 2;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.widgetXlTh {
+  font-size: 0.9em;
+}
+
+.widgetXlTitle {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.widgetXlImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.tableWidgetXl {
+  width: 100%;
+  border-spacing: 20px;
+}
+.widgetXlTr {
+  padding-top: 10px;
+}
+.widgetXlTh {
+  text-align: left;
+}

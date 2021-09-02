@@ -24,6 +24,8 @@ app.use(express.json());
 app.use("/", require("./../routes/home-router"));
 app.use("/products", require("./../routes/product-router"));
 app.use("/profile", require("./../routes/profile-router"));
+app.use("/login", require("./../routes/login-router"));
+app.use("/register", require("./../routes/register-router"));
 app.use("/dashboard", require("./../routes/dashboard-router"));
 app.use("/cart", require("./../routes/cart-router"));
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { randFloatSpread } from "three/src/math/MathUtils";
 
 import "./mainHeader.css";
 
@@ -38,10 +37,10 @@ function MainHeader() {
         <div className="navigation__login d-flex flex-row justify-content-between align-items-center pe-3 gap-4">
           {!isLogged && (
             <>
-              <NavLink to="/profile/login">
+              <NavLink to="/login">
                 <p className="text-white">Login</p>
               </NavLink>
-              <NavLink to="/profile/register">
+              <NavLink to="/register">
                 <p className="text-white">Register</p>
               </NavLink>{" "}
             </>

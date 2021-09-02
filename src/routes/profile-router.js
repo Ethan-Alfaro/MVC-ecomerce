@@ -17,22 +17,6 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.get("/login", (req, res, next) => {
-   res.sendFile(app.get("HTML_FILE"), function (err) {
-      if (err) {
-        res.status(500).send(err);
-      }
-    });
-});
-
-router.get("/register", (req, res, next) => {
-   res.sendFile(app.get("HTML_FILE"), function (err) {
-      if (err) {
-        res.status(500).send(err);
-      }
-    });
-});
-
 router.get("/logout", (req, res) => {
   req.logOut();
   res.redirect("/");

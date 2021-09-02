@@ -20,10 +20,10 @@ function App() {
       <Router>
         <MainHeader />
         <Switch>
-          <Route path="/profile/register">
+          <Route path="/register">
             <Signup />
           </Route>
-          <Route path="/profile/login">
+          <Route path="/login">
             <Login />
           </Route>
           <Route path="/profile">

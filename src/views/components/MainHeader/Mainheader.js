@@ -20,7 +20,8 @@ function MainHeader() {
           <img
             className="navigation__logo"
             src="/assets/branding/Mern_Logo.png"
-            alt="logo"></img>
+            alt="logo"
+          ></img>
         </NavLink>
       </div>
       <div className="d-flex flex-row justify-content-between align-items-center w-100">
@@ -59,7 +60,8 @@ function MainHeader() {
                     to="#"
                     role="button"
                     aria-haspopup="true"
-                    aria-expanded="false">
+                    aria-expanded="false"
+                  >
                     <i className="fas fa-chevron-down text-light d-flex justify-content-center align-items-center"></i>
                   </NavLink>
                   <div className="dropdown-menu">

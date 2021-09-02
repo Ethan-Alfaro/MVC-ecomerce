@@ -1,0 +1,9 @@
+.mainHeader {
+  flex: 4;
+}
+
+.widgets {
+  display: flex;
+  margin: 20px;
+  /* justify-content: space-between; */
+}

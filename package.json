@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/Ethan-Alfaro/MVC-ecomerce#readme",
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
     "axios": "^0.21.1",
     "dat.gui": "^0.7.7",
     "dotenv": "^10.0.0",
@@ -29,6 +31,7 @@
     "helmet": "^4.6.0",
     "mongoose": "^5.13.7",
     "morgan": "^1.10.0",
+    "recharts": "^2.1.2",
     "three": "^0.132.2"
   },
   "devDependencies": {

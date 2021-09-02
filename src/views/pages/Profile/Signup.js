@@ -9,6 +9,7 @@ export default class Signup extends Component {
       email: "",
       password: "",
       name: "",
+      confirmPassword: "",
       loginErrors: "",
     };
     this.handleChange = this.handleChange.bind(this);
@@ -22,12 +23,13 @@ export default class Signup extends Component {
   }
 
   handleSubmit(e) {
-    const { email, password, name } = this.state;
+    const { email, password, name, confirmPassword } = this.state;
 
     axios
       .post("/register", {
         email: email,
         password: password,
+        confirmPassword: confirmPassword,
         name: name,
       })
       .then((response) => {
@@ -81,6 +83,18 @@ export default class Signup extends Component {
             id="exampleInputPassword1"
             placeholder="Password"
             value={this.state.password}
+            onChange={this.handleChange}
+            required
+          />
+          <label htmlFor="exampleInputPassword1" className="form-label mt-4">
+            Confirm password
+          </label>
+          <input
+            type="password"
+            className="form-control"
+            id="exampleInputPassword1"
+            placeholder="Confirm password"
+            value={this.state.confirmPassword}
             onChange={this.handleChange}
             required
           />

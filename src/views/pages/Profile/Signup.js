@@ -49,13 +49,13 @@ export default class Signup extends Component {
           <img className="imageLogin" src="/assets/signup/robot-signup.png" />
         </div>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="exampleInputPassword1" className="form-label mt-4">
+          <label htmlFor="exampleInputName1" className="form-label mt-4">
             Name
           </label>
           <input
             type="text"
             className="form-control"
-            id="exampleInputPassword1"
+            id="exampleInputName1"
             placeholder="First name"
             value={this.state.name}
             onChange={this.handleChange}
@@ -92,7 +92,7 @@ export default class Signup extends Component {
           <input
             type="password"
             className="form-control"
-            id="exampleInputPassword1"
+            id="exampleInputConfirmPassword1"
             placeholder="Confirm password"
             value={this.state.confirmPassword}
             onChange={this.handleChange}

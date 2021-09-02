@@ -19,6 +19,8 @@ app.set("HTML_FILE", path.join(app.get("PUBLIC_DIR"), "index.html"));
 app.use(morgan("dev"));
 // Esto es un middleware que comprueba si el mensage que recive desde el cliente (en formularios), es en formato Json.
 app.use(express.json());
+/* urlencoded sirve para que exprees entienda los req de los formularios html */
+app.use(express.urlencoded({ extended: false }));
 
 // routes
 app.use("/", require("./../routes/home-router"));

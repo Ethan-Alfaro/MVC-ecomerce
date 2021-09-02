@@ -24,7 +24,7 @@ router.post(
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/checkout",
-    // failureFlash: true
+    failureFlash: true
   })
 );
 

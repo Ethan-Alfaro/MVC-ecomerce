@@ -22,7 +22,9 @@ router.get("/", async (req, res) => {
 // create data to DB
 router.post("/register-user", async (req, res) => {
   const { name, email, password, confirmPassword, category } = req.body;
+
   const errors = [];
+
   console.log(req.body);
   if (name.length <= 0 || name.length == "") {
     errors.push({ text: "Please insert your Name!" });
@@ -40,40 +42,36 @@ router.post("/register-user", async (req, res) => {
     errors.push({ text: "Password must be at least 4 characters" });
   }
   if (errors.length > 0) {
-    res.redirect("/", { message: "There are errors!" });
-    // res.render("/", {
-    //   errors,
-    //   name,
-    //   email,
-    //   password,
-    //   confirmPassword,
-    //   category
-    // });
+    redir = {
+      redirect: "/register",
+    };
+    res.json(redir);
   } else {
+    // funcion para renderizar la vista que necesitemos
+    function renderPage(url) {
+      redir = { redirect: url };
+      res.json(redir);
+    }
     // primero, buscamos si existe el email recogido desde req.body y lo comparamos con algun email que ya exista en la base de datos.
     // si no existe ese email, procedemos a guardar el nuevo usuario
     const emailFound = await userModel.findOne({ email: email });
-
     if (emailFound) {
-      res.redirect("/", { message: "Email already used!" });
-      // req.flash("error_msg", "Email already used!");
+      console.log(emailFound);
+      let url = "/register";
+      renderPage(url);
+    } else {
+      const newUser = new userModel({
+        name: name,
+        email: email,
+        password: password,
+        category: category,
+      });
+      newUser.password = await newUser.encryptPassword(password);
+      console.log(newUser);
+      newUser.save();
+      let url = "/login";
+      renderPage(url);
     }
-
-    const newUser = new userModel({
-      name: name,
-      email: email,
-      password: password,
-      category: category,
-    });
-    newUser.password = await newUser.encryptPassword(password);
-    await newUser.save();
-    // req.flash("succes_msg", "Account succesfully saved!");
-    // res.redirect("/", { message: "Account succesfully saved!" });
-    res.sendFile(app.get("HTML_FILE"), function (err) {
-      if (err) {
-        res.status(500).send(err);
-      }
-    });
   }
 });
 

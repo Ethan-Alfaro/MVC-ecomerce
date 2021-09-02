@@ -9,6 +9,7 @@ const UserSchema = new Schema({
   date: { type: Date, default: Date.now },
   category: {
     type: String,
+    lowercase: true,
     required: true,
   },
 });

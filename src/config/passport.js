@@ -1,7 +1,6 @@
 const passport = require("passport");
-// import { Strategy as LocalStrategy } from "passport-local";
 const localStrategy = require("passport-local").Strategy;
-const userModel = require("../models/User");
+const userModel = require("../models/user-model");
 
 passport.use(
   new localStrategy(

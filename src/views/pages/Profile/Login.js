@@ -51,11 +51,12 @@ export default class Login extends Component {
           </label>
           <input
             type="email"
+            name="email"
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             placeholder="Enter email"
-            value={this.state.email}
+            value={this.state.value}
             onChange={this.handleChange}
             required
           />
@@ -64,10 +65,11 @@ export default class Login extends Component {
           </label>
           <input
             type="password"
+            name="password"
             className="form-control"
             id="exampleInputPassword1"
             placeholder="Password"
-            value={this.state.password}
+            value={this.state.value}
             onChange={this.handleChange}
             required
           />

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { randFloatSpread } from "three/src/math/MathUtils";
 
 import "./mainHeader.css";
 
@@ -9,8 +8,8 @@ function MainHeader() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    setIsLogged(false);
-    setIsAdmin(false);
+    setIsLogged(true);
+    setIsAdmin(true);
   }, []);
 
   return (
@@ -20,8 +19,7 @@ function MainHeader() {
           <img
             className="navigation__logo"
             src="/assets/branding/Mern_Logo.png"
-            alt="logo"
-          ></img>
+            alt="logo"></img>
         </NavLink>
       </div>
       <div className="d-flex flex-row justify-content-between align-items-center w-100">
@@ -39,10 +37,10 @@ function MainHeader() {
         <div className="navigation__login d-flex flex-row justify-content-between align-items-center pe-3 gap-4">
           {!isLogged && (
             <>
-              <NavLink to="/profile/login">
+              <NavLink to="/login">
                 <p className="text-white">Login</p>
               </NavLink>
-              <NavLink to="/profile/register">
+              <NavLink to="/register">
                 <p className="text-white">Register</p>
               </NavLink>{" "}
             </>
@@ -60,8 +58,7 @@ function MainHeader() {
                     to="#"
                     role="button"
                     aria-haspopup="true"
-                    aria-expanded="false"
-                  >
+                    aria-expanded="false">
                     <i className="fas fa-chevron-down text-light d-flex justify-content-center align-items-center"></i>
                   </NavLink>
                   <div className="dropdown-menu">

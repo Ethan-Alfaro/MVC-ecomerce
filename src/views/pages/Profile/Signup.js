@@ -26,7 +26,7 @@ export default class Signup extends Component {
     const { email, password, name, confirmPassword } = this.state;
 
     axios
-      .post("/register", {
+      .post("/register/register-user", {
         email: email,
         password: password,
         confirmPassword: confirmPassword,

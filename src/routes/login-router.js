@@ -23,8 +23,7 @@ router.post("/", passport.authenticate("local"), (req, res, next) => {
   if (req.user) {
     console.log(req.user);
     console.log("SI fueeee");
-
-    let redir = { redirect: "/" };
+    let redir = { redirect: "/login" };
     return res.json(redir);
   } else {
     console.log("NO fueeee");

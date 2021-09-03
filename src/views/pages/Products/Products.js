@@ -31,7 +31,6 @@ function Products() {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         setProductsArray(data);
       })
       .catch((err) => {
@@ -45,11 +44,10 @@ function Products() {
         <Grid container spacing={3}>
           {productsArray.map((product) => (
             <Grid item sm={12} md={6} lg={4} key={product._id}>
-              <div  className="tarjeta-wrap">
+              <div className="tarjeta-wrap">
                 <div className="tarjeta">
                   <div className="adelante">
                     <img src={`./assets/products/guitars/${product.img}`} />
-                    {/* <p>{product.img}</p> */}
                   </div>
                   <div className="atras">
                     <div className="atras-title">
@@ -62,13 +60,17 @@ function Products() {
                       <p>Price: {product.price}</p>
                     </div>
                     <div className="atras-buy">
-                      <a href="" className="buyButton">
-                        <span id="span1"></span>
-                        <span id="span2"></span>
-                        <span id="span3"></span>
-                        <span id="span4"></span>
-                        Buy Now!
-                      </a>
+                      <form
+                        action={`/cart/add-product/${product._id}`}
+                        method="POST">
+                        <button type="submit" className="buyButton">
+                          <span id="span1"></span>
+                          <span id="span2"></span>
+                          <span id="span3"></span>
+                          <span id="span4"></span>
+                          Add to cart!
+                        </button>
+                      </form>
                     </div>
                   </div>
                 </div>

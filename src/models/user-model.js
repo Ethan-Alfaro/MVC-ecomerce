@@ -11,6 +11,7 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  cart: { type: Array },
 });
 
 UserSchema.methods.encryptPassword = async (password) => {

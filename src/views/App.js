@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./app.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -15,6 +15,7 @@ import ShoppingCart from "./pages/ShoppingCart";
 import Dashboard from "./pages/Dashboard/Dashboard";
 
 function App() {
+
   return (
     <div className="app">
       <Router>

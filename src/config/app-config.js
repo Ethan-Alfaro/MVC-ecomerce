@@ -2,11 +2,14 @@ const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
 const dotenv = require("dotenv");
+const passport = require("passport");
+const session = require("express-session");
 dotenv.config();
 const app = express();
 
 // Llamamos a la base de datos para inicializarla
 require("./database");
+require("./passport");
 
 // congif
 app.set("port", process.env.PORT || 4000);
@@ -21,6 +24,28 @@ app.use(morgan("dev"));
 app.use(express.json());
 /* urlencoded sirve para que exprees entienda los req de los formularios html */
 app.use(express.urlencoded({ extended: false }));
+/* Importante inizializar las sesiones antes que passport session, si no da errores */
+app.use(
+  session({
+    secret: process.env.SECRET_SESSION,
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+      maxAge: 3600000,
+      sameSite: false, // this may need to be false is you are accessing from another React app
+      httpOnly: false, // this must be false if you want to access the cookie
+    },
+  })
+);
+/* Passport nos hara comprobaciones y autenticaciones de usuario */
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Global variables
+app.use((req, res, next) => {
+  res.locals.userSession = req.user || null;
+  next();
+});
 
 // routes
 app.use("/", require("./../routes/home-router"));

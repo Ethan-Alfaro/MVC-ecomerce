@@ -68,7 +68,7 @@ router.post("/register-user", async (req, res) => {
       });
       newUser.password = await newUser.encryptPassword(password);
       console.log(newUser);
-      newUser.save();
+      await newUser.save();
       let url = "/login";
       renderPage(url);
     }

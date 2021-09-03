@@ -19,6 +19,7 @@ function App() {
   useEffect(() => {
     window.history.pushState({}, document.title, "/" + "");
   });
+
   return (
     <div className="app">
       <Router>

@@ -4,13 +4,39 @@ import { NavLink } from "react-router-dom";
 import "./mainHeader.css";
 
 function MainHeader() {
+  const [userSession, setUserSession] = useState({});
   const [isLogged, setIsLogged] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    setIsLogged(true);
-    setIsAdmin(true);
+    window.history.pushState({}, document.title, "/" + "");
+    checkIfSessionExist();
   }, []);
+
+  function checkIfSessionExist() {
+    fetch("/get-user")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setUserSession(data);
+        if (data.message !== "You are not logged in") {
+          setIsLogged(true);
+          if (data.category == "Employee") {
+            setIsAdmin(false);
+          } else {
+            setIsAdmin(true);
+          }
+        }
+      })
+      .catch((err) => {
+        //console.error(err);
+      });
+  }
+
+  function goToLogout() {
+    window.location = "/profile/logout";
+  }
 
   return (
     <nav className="container-fluid d-flex flex-row justify-content-between align-items-center navbar-dark bg-primary gap-3 py-2 px-5">
@@ -51,7 +77,11 @@ function MainHeader() {
           {isLogged && (
             <>
               <div className="d-flex flex-row justify-content-between align-items-center gap-2">
-                <p className="text-light">Username</p>
+                {userSession.name ? (
+                  <p className="text-light">{userSession.name}</p>
+                ) : (
+                  <p className="text-light">Username</p>
+                )}
                 <div>
                   <NavLink
                     data-bs-toggle="dropdown"
@@ -65,9 +95,9 @@ function MainHeader() {
                     <NavLink className="dropdown-item bg-light" to="/profile">
                       <p className="text-primary">Profile</p>
                     </NavLink>
-                    <NavLink className="dropdown-item bg-light" to="#">
-                      <p className="text-primary">Logout</p>
-                    </NavLink>
+                    <button className="btn btn-primary w-100" onClick={goToLogout}>
+                      <p className="text-light d-flex flex-row justify-content-center">Logout</p>
+                    </button>
                   </div>
                 </div>
               </div>

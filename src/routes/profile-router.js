@@ -4,12 +4,14 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
+const { verifyAuthentication } = require("../helpers/auth");
+
 // read DB
 app.set("PUBLIC_DIR", path.join(__dirname, "/../../public"));
 app.set("HTML_FILE", path.join(app.get("PUBLIC_DIR"), "index.html"));
 
 // read Data from DB
-router.get("/", async (req, res) => {
+router.get("/", verifyAuthentication, async (req, res) => {
   res.sendFile(app.get("HTML_FILE"), function (err) {
     if (err) {
       res.status(500).send(err);
@@ -18,8 +20,11 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-  req.logOut();
-  res.redirect("/");
+  // req.logOut();
+  console.log("Hola?");
+  req.session.destroy(function (err) {
+    res.redirect("/"); //Inside a callback… bulletproof!
+  });
 });
 
 module.exports = router;

@@ -26,13 +26,9 @@ export default class Signup extends Component {
   }
 
   handleSubmit(e) {
-    const {
-      email,
-      password,
-      name,
-      confirmPassword,
-      category = "employee",
-    } = this.state;
+    window.history.pushState({}, document.title, "/login" + "");
+
+    const { email, password, confirmPassword, category, name } = this.state;
 
     axios
       .post("/register/register-user", {
@@ -42,11 +38,15 @@ export default class Signup extends Component {
         category: category,
         name: name,
       })
-      .then((response) => {
-        console.log("response from signup", response);
+      .then(function (res) {
+        if (res.data.redirect == "/register") {
+          window.location = "/register";
+        } else if (res.data.redirect == "/login") {
+          window.location = "/login";
+        }
       })
-      .cath((error) => {
-        console.log("signup error", error);
+      .catch(function (err) {
+        window.location = "/login";
       });
 
     e.prevenDefault();

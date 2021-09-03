@@ -1,6 +1,9 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 function Checkout() {
+  useEffect(()=>{
+    location.reload();
+  });
   return (
     <div>
 			<h1>

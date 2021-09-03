@@ -22,6 +22,8 @@ export default class Login extends Component {
   }
 
   handleSubmit(e) {
+    window.history.pushState({}, document.title, "/" + "");
+
     const { email, password } = this.state;
 
     axios
@@ -29,11 +31,15 @@ export default class Login extends Component {
         email: email,
         password: password,
       })
-      .then((response) => {
-        console.log("response from login", response);
+      .then(function (res) {
+        if (res.data.redirect == "/") {
+          window.location = "/";
+        } else if (res.data.redirect == "/login") {
+          window.location = "/login";
+        }
       })
-      .cath((error) => {
-        console.log("login error", error);
+      .catch(function (err) {
+        window.location = "/login";
       });
 
     e.prevenDefault();

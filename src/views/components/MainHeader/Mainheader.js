@@ -9,8 +9,8 @@ function MainHeader() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    setIsLogged(false);
-    setIsAdmin(false);
+    setIsLogged(true);
+    setIsAdmin(true);
   }, []);
 
   return (

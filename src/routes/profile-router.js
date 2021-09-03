@@ -20,8 +20,11 @@ router.get("/", verifyAuthentication, async (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-  req.logOut();
-  res.redirect("/");
+  // req.logOut();
+  console.log("Hola?");
+  req.session.destroy(function (err) {
+    res.redirect("/"); //Inside a callback… bulletproof!
+  });
 });
 
 module.exports = router;

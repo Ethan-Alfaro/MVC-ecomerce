@@ -26,6 +26,8 @@ export default class Signup extends Component {
   }
 
   handleSubmit(e) {
+    window.history.pushState({}, document.title, "/login" + "");
+
     const { email, password, confirmPassword, category, name } = this.state;
 
     axios

@@ -9,6 +9,7 @@ function MainHeader() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
+    window.history.pushState({}, document.title, "/" + "");
     checkIfSessionExist();
   }, []);
 
@@ -18,7 +19,6 @@ function MainHeader() {
         return res.json();
       })
       .then((data) => {
-        console.log(data.category);
         setUserSession(data);
         if (data.message !== "You are not logged in") {
           setIsLogged(true);
@@ -32,6 +32,10 @@ function MainHeader() {
       .catch((err) => {
         console.error(err);
       });
+  }
+
+  function goToLogout() {
+    window.location = "/profile/logout";
   }
 
   return (
@@ -91,11 +95,9 @@ function MainHeader() {
                     <NavLink className="dropdown-item bg-light" to="/profile">
                       <p className="text-primary">Profile</p>
                     </NavLink>
-                    <NavLink
-                      className="dropdown-item bg-light"
-                      to="/profile/logout">
-                      <p className="text-primary">Logout</p>
-                    </NavLink>
+                    <button className="btn btn-primary w-100" onClick={goToLogout}>
+                      <p className="text-light d-flex flex-row justify-content-center">Logout</p>
+                    </button>
                   </div>
                 </div>
               </div>

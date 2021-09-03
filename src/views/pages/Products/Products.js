@@ -44,8 +44,8 @@ function Products() {
       <div className={classes.root}>
         <Grid container spacing={3}>
           {productsArray.map((product) => (
-            <Grid item sm={12} md={6} lg={4}>
-              <div className="tarjeta-wrap">
+            <Grid item sm={12} md={6} lg={4} key={product._id}>
+              <div  className="tarjeta-wrap">
                 <div className="tarjeta">
                   <div className="adelante">
                     <img src={`./assets/products/guitars/${product.img}`} />

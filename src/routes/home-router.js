@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/get-user", (req, res) => {
-  console.log(req.user);
+  // console.log(req.user);
   if (req.user) {
     const { name, email, category } = req.user;
     const user = { name: name, email: email, category: category };

@@ -5,7 +5,8 @@ helpers.verifyAuthentication = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   } else {
-    res.json({ redirect: "./no-auth" });
+    res.redirect("/");
+    // res.json({ redirect: "./no-auth" });
   }
 };
 

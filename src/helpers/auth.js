@@ -6,7 +6,6 @@ helpers.verifyAuthentication = (req, res, next) => {
     return next();
   } else {
     res.redirect("/");
-    // res.json({ redirect: "./no-auth" });
   }
 };
 

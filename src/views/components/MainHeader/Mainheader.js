@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-
-import FetchDB from "../../hoc/FetchDB";
+import { NavLink, Redirect } from "react-router-dom";
 
 import "./mainHeader.css";
+import FetchDB from "../../hoc/FetchDB";
 
-function MainHeader({ isLogged, isAdmin, userSession }) {
+function MainHeader({ isLogged, isAdmin, userSession, isLoading }) {
   useEffect(() => {
-    console.log(isLogged);
-    console.log(isAdmin);
-    console.log(userSession);
-  }, [isLogged]);
+    if (!isLoading) {
+      console.log(userSession);
+    }
+  }, [isLoading]);
 
   function goToLogout() {
     window.location = "/profile/logout";
@@ -49,9 +48,13 @@ function MainHeader({ isLogged, isAdmin, userSession }) {
               </NavLink>
             </>
           )}
-          <NavLink to="/cart">
-            <i className="fas fa-shopping-cart text-light"></i>
-          </NavLink>
+          {isLogged ? (
+            <NavLink to="/cart">
+              <i className="fas fa-shopping-cart text-light"></i>
+            </NavLink>
+          ) : (
+            <Redirect to="/" />
+          )}
           {isLogged && (
             <>
               <div className="d-flex flex-row justify-content-between align-items-center gap-2">

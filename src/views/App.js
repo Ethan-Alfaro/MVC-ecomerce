@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./app.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -9,17 +9,12 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile/Profile";
 import Login from "./pages/Profile/Login";
 import Signup from "./pages/Profile/Signup";
-import UpdatePassword from "./pages/Profile/UpdatePassword";
 import Products from "./pages/Products";
 import ShoppingCart from "./pages/ShoppingCart";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import NoAuth from "./pages/noAuth/NoAuth";
 
 function App() {
-  useEffect(() => {
-    window.history.pushState({}, document.title, "/" + "");
-  });
-
   return (
     <div className="app">
       <Router>
@@ -46,7 +41,7 @@ function App() {
           <Route path="/no-auth">
             <NoAuth />
           </Route>
-          <Route path="/" exact>
+          <Route path="/">
             <Home />
           </Route>
         </Switch>

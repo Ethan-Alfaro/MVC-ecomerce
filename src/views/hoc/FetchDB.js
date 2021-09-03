@@ -5,7 +5,7 @@ function getDisplayName(WrappedComponent) {
 }
 
 function FetchDB(WrappedComponent) {
-  WrappedComponent.displayName = `withLayout(${getDisplayName(
+  WrappedComponent.displayName = `CheckUserDB(${getDisplayName(
     WrappedComponent
   )})`;
 
@@ -13,10 +13,11 @@ function FetchDB(WrappedComponent) {
     const [userSession, setUserSession] = useState({});
     const [isLogged, setIsLogged] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
+    const [isLoading, setIsloading] = useState(true);
 
     useEffect(() => {
       checkIfSessionExist();
-    }, []);
+    }, [isLoading]);
 
     function checkIfSessionExist() {
       fetch("/get-user")
@@ -24,10 +25,11 @@ function FetchDB(WrappedComponent) {
           return res.json();
         })
         .then((data) => {
-          // console.log(data);
           setUserSession(data);
+          setIsloading(false);
           if (data.message !== "You are not logged in") {
             setIsLogged(true);
+            setIsloading(false);
             if (data.category == "Employee") {
               setIsAdmin(false);
             } else {
@@ -46,6 +48,7 @@ function FetchDB(WrappedComponent) {
           isLogged={isLogged}
           isAdmin={isAdmin}
           userSession={userSession}
+          isLoading={isLoading}
         />
       </section>
     );

@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 
 function Checkout() {
   useEffect(()=>{
-    location.reload();
+    // location.reload();
   });
   return (
     <div>

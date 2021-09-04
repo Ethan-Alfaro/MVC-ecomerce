@@ -7,7 +7,7 @@ import FetchDB from "../../hoc/FetchDB";
 function MainHeader({ isLogged, isAdmin, userSession, isLoading }) {
   useEffect(() => {
     if (!isLoading) {
-      console.log(userSession);
+      // console.log(userSession);
     }
   }, [isLoading]);
 

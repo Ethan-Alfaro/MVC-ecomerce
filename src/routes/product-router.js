@@ -5,7 +5,6 @@ const path = require("path");
 const app = express();
 
 const productModel = require("../models/product-model");
-const { verifyAuthentication } = require("../helpers/auth");
 
 app.set("PUBLIC_DIR", path.join(__dirname, "/../../public"));
 app.set("HTML_FILE", path.join(app.get("PUBLIC_DIR"), "index.html"));

@@ -21,11 +21,7 @@ router.get("/", async (req, res) => {
 /* Ponemos local dentro de authenticate, porque asi nos lo pide la documentacion. De esta manera ejecutamos a las funciones que estan dentro del archivo passport.js. Mirara de autentificar el usuario desde la base de datos y si lo logra, lo guardara en session */
 router.post("/", passport.authenticate("local"), (req, res, next) => {
   if (req.user) {
-    let redir = { redirect: "/login" };
-    return res.json(redir);
-  } else {
-    let redir = { redirect: "/login" };
-    return res.json(redir);
+    res.json({ message: "Logged!" });
   }
 });
 

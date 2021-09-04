@@ -4,9 +4,9 @@ import "./particlesBackground.css";
 
 let scene, camera, renderer, particlesMesh;
 
-// texture Loader
+// Texture Loader
 const textureLoader = new THREE.TextureLoader();
-const particleTexture = textureLoader.load("assets/textures/normalMap.jpg");
+const particleTexture = textureLoader.load("/assets/textures/normalMap.jpg");
 
 function ParticlesBackground() {
   useEffect(() => {
@@ -15,7 +15,7 @@ function ParticlesBackground() {
   });
 
   function init() {
-    //creating scene
+    //Creating scene
     scene = new THREE.Scene();
 
     const sizes = {
@@ -37,7 +37,7 @@ function ParticlesBackground() {
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     });
 
-    //add camera
+    // Add camera
     camera = new THREE.PerspectiveCamera(
       55,
       sizes.width / sizes.height,
@@ -47,14 +47,15 @@ function ParticlesBackground() {
     camera.position.x = 0;
     camera.position.y = 0;
     camera.position.z = 2;
+    camera.focus = 1000;
 
-    //renderer
+    // Renderer
     renderer = new THREE.WebGLRenderer({ alpha: false, depth: true });
     renderer.setSize(sizes.width, sizes.height);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(new THREE.Color("white"), 1);
 
-    //add geometry
+    // Add geometry
     const particlesGeometry = new THREE.BufferGeometry();
     const particlesCnt = 5000;
 
@@ -63,7 +64,7 @@ function ParticlesBackground() {
     for (let i = 0; i < particlesCnt * 3; i++) {
       // positionArray[i] = Math.random();
       // positionArray[i] = Math.random() - 0.5;
-      positionArray[i] = (Math.random() - 0.5) * 5;
+      positionArray[i] = (Math.random() - 0.5) * 7;
     }
 
     particlesGeometry.setAttribute(
@@ -71,9 +72,9 @@ function ParticlesBackground() {
       new THREE.BufferAttribute(positionArray, 3)
     );
 
+    // Material
     let particlesMaterial = new THREE.PointsMaterial({
-      size: 0.005,
-      map: particleTexture,
+      size: 0.01,
       transparent: true,
       color: "grey",
     });
@@ -103,12 +104,12 @@ function ParticlesBackground() {
 
     const elapsedTime = clock.getElapsedTime();
 
-    particlesMesh.rotation.y = -0.01 * elapsedTime;
+    particlesMesh.rotation.y = 0.01 * elapsedTime;
 
-    if (mouseX > 0) {
-      particlesMesh.rotation.y = mouseY * (elapsedTime * 0.00002);
-      particlesMesh.rotation.x = mouseX * (elapsedTime * 0.00002);
-    }
+    // if (mouseX > 0) {
+    //   particlesMesh.rotation.y = mouseY * (elapsedTime * 0.00002);
+    //   particlesMesh.rotation.x = mouseX * (elapsedTime * 0.00002);
+    // }
 
     renderer.render(scene, camera);
   }

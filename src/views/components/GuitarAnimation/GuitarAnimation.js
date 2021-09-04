@@ -26,13 +26,13 @@ function GuitarAnimation() {
       "assets/3d-models/guitarrisha/guitarrisha.glb",
       (guitar) => {
         guitar.scene.scale.set(1, 1, 1);
-        guitar.scene.position.set(0, 2, -3);
+        guitar.scene.position.set(0, 2.3, -3);
         scene.add(guitar.scene);
 
-        tl.to(guitar.scene.scale, { x: 0.22, y: 0.22, z: 0.22, duration: 2 });
+        tl.to(guitar.scene.scale, { x: 0.27, y: 0.27, z: 0.27, duration: 2 });
         tl.to(guitar.scene.rotation, { y: 5, duration: 2 }, "-=2");
-        tl.to(guitar.scene.position, { x: -1 }, "-=2");
-        tl.to(guitar.scene.position, { x: 2, duration: 2 });
+        tl.to(guitar.scene.position, { x: -3 }, "-=2");
+        tl.to(guitar.scene.position, { x: 3.5, duration: 2 });
 
         guitarModel = guitar.scene.children[0];
         animate();
@@ -40,14 +40,20 @@ function GuitarAnimation() {
     );
 
     // Lights
-    const pointLight = new THREE.PointLight(0xffffff, 3);
+    const pointLight = new THREE.PointLight(0xffffff, 7);
     pointLight.position.x = 2;
     pointLight.position.y = 3;
-    pointLight.position.z = 4;
+    pointLight.position.z = 2;
     scene.add(pointLight);
 
+    const pointLightTwo = new THREE.PointLight(0x0000ff, 3);
+    pointLightTwo.position.x = -2;
+    pointLightTwo.position.y = -3;
+    pointLightTwo.position.z = -2;
+    scene.add(pointLightTwo);
+
     const sizes = {
-      width: window.innerWidth -160,
+      width: window.innerWidth,
       height: window.innerHeight - 160,
     };
 
@@ -57,11 +63,12 @@ function GuitarAnimation() {
       sizes.height = window.innerHeight;
 
       // Update camera
-      camera.aspect = sizes.width/ sizes.height;
+      camera.aspect = sizes.width / sizes.height;
+      camera.focus = 0;
       camera.updateProjectionMatrix();
 
       // Update renderer
-      renderer.setSize(sizes.width - 160, sizes.height - 160);
+      renderer.setSize(sizes.width, sizes.height - 160);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     });
 
@@ -75,6 +82,7 @@ function GuitarAnimation() {
     camera.position.x = 0;
     camera.position.y = 0;
     camera.position.z = 3;
+    camera.focus = 1000;
 
     //renderer
     renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
@@ -111,8 +119,8 @@ function GuitarAnimation() {
     guitarModel.rotation.y = 0.5 * elapsedTime;
 
     guitarModel.rotation.y += 0.5 * (targetX - guitarModel.rotation.y);
-    guitarModel.rotation.x += 0.5 * (targetY - guitarModel.rotation.x);
-    guitarModel.position.z += -0.5 * (targetY - guitarModel.rotation.x);
+    // guitarModel.rotation.x += 0.5 * (targetY - guitarModel.rotation.x);
+    // guitarModel.position.z += -0.5 * (targetY - guitarModel.rotation.x);
 
     renderer.render(scene, camera);
   }

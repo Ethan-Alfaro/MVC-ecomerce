@@ -3,6 +3,7 @@ import './products.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import {actionTypes} from '../../reducer/shoppingReducer';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 function Products() {
   const [productsArray, setProductsArray] = useState([]);
   const classes = useStyles();
-
+  const [{basket, dispatch}] = useStateValue();
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -38,6 +39,12 @@ function Products() {
         console.error(err);
       });
   }
+  function addToCart(){
+   dispatch({
+     type: actionTypes.ADD_TO_CART,
+     item:{name,img,description,price}
+    })
+  }
 
   return (
       <div className="wrap">
@@ -49,8 +56,7 @@ function Products() {
                 <div className="tarjeta-wrap">
                 <div className="tarjeta">
                     <div className="adelante">
-                        {/* <img src={`./assets/products/guitars/${product.img}`} /> */}
-                        <p>{product.img}</p>
+                        <img src={`./assets/products/guitars/${product.img}`} />
                     </div>
                     <div className="atras">
                        <div className='atras-title'>
@@ -64,12 +70,12 @@ function Products() {
                        
                        </div>
                        <div className='atras-buy'>
-                          <a href="" className="buyButton">
+                          <a href="#" className="buyButton" onClick={ addToCart }>
                             <span id='span1'></span>
                             <span id='span2'></span>
                             <span id='span3'></span>
                             <span id='span4'></span>
-                            Buy Now!
+                            Add to Cart!
                           </a>
                        </div>
                     </div>

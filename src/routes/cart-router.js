@@ -21,9 +21,9 @@ router.get("/", verifyAuthentication, async (req, res) => {
   });
 });
 
-router.get("/get-users", verifyAuthentication, async (req, res) => {
-  const foundUsers = await userModel.find();
-  res.json(foundUsers);
+router.get("/get-user/:id", verifyAuthentication, async (req, res) => {
+  const foundUser = await userModel.findById(req.params.id);
+  res.json(foundUser);
 });
 
 // read Data from DB

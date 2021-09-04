@@ -22,7 +22,7 @@ router.get("/", verifyAuthentication, async (req, res) => {
 router.get("/logout", (req, res) => {
   // req.logOut();
   req.session.destroy(function (err) {
-    res.redirect("/"); //Inside a callback… bulletproof!
+    res.redirect("/");
   });
 });
 

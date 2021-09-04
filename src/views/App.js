@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./app.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -41,7 +41,7 @@ function App() {
           <Route path="/no-auth">
             <NoAuth />
           </Route>
-          <Route path="/">
+          <Route path="/" exact>
             <Home />
           </Route>
         </Switch>

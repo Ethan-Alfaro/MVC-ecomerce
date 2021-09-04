@@ -21,6 +21,11 @@ router.get("/", verifyAuthentication, async (req, res) => {
   });
 });
 
+router.get("/get-users", verifyAuthentication, async (req, res) => {
+  const foundUsers = await userModel.find();
+  res.json(foundUsers);
+});
+
 // read Data from DB
 router.post("/add-product/:id", verifyAuthentication, async (req, res) => {
   const foundProduct = await productModel.findById(req.params.id);

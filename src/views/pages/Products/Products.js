@@ -23,6 +23,10 @@ function Products() {
 
   useEffect(() => {
     fetchProducts();
+    // Retornamos y seteamos los productos a un Array vacío cuando se desmonta este componente. Esto es por seguridad
+    return () => {
+      setProductsArray([]);
+    };
   }, []);
 
   function fetchProducts() {

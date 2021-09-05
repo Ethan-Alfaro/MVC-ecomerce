@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { NavLink } from "react-router-dom";
 import "./shoppingCart.css";
 import FetchDB from "../../hoc/FetchDB";
 
@@ -38,10 +38,7 @@ function ShoppingCart({ isLoading, userSession }) {
 
   return (
     <div>
-      <h1 className="container mt-3">Shopping cart page</h1>
-      <hr />
-      <br />
-      <section className="user__container">
+      <section className="user__container mt-3">
         <section key={getUser._id}>
           <div className="user__title container">
             <h4>Customer: {getUser.name}</h4>
@@ -62,6 +59,10 @@ function ShoppingCart({ isLoading, userSession }) {
           </div>
         </section>
       </section>
+      <NavLink to="/checkout">
+        
+        <button className="btn btn-dark" id="checkoutButton">Checkout</button>
+      </NavLink>
     </div>
   );
 }

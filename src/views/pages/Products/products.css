@@ -1,172 +1,171 @@
+.wrap {
+  width: 90vw;
+  height: 80vh;
+  margin-top: 100px;
+  margin-left: 5%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+  color: black;
+  padding: 20px;
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+.tarjeta-wrap {
+  margin: 10px;
+  perspective: 1000;
+  -webkit-perspective: 1000;
+}
+.tarjeta {
+  width: 300px;
+  height: 350px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: 0.7s ease;
+  -webkit-box-shadow: 2px 4px 13px -1px rgb(68, 68, 68);
+  -moz-box-shadow: 2px 4px 13px -1px rgb(68, 68, 68);
+  box-shadow: 2px 4px 13px -1px rgb(68, 68, 68);
+  border-radius: 15px;
+}
+.adelante,
+.atras {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 15px;
+}
 
-.wrap{
-    width: 90vw;
-    height: 80vh;
-    margin-left: 5%;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    text-align: center;
-    color: black;
-    padding: 20px;
-    box-sizing: border-box;
+.atras {
+  transform: rotateY(180deg);
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: rgb(29, 29, 29);
+  background-color: #fff;
+  box-shadow: none;
+  border: none;
 }
-*{
-    margin: 0;
-    box-sizing: border-box;
+.atras-title {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
-.tarjeta-wrap{
-    margin: 10px;
-    perspective: 1000;
-    -webkit-perspective: 1000;
+.atras-description {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
 }
-.tarjeta{
-    width: 300px;
-    height: 350px;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: .7s ease;
-    -webkit-box-shadow: 2px 4px 13px -1px rgb(68, 68, 68);
-    -moz-box-shadow: 2px 4px 13px -1px rgb(68, 68, 68);
-    box-shadow: 2px 4px 13px -1px rgb(68, 68, 68);
-    border-radius: 15px;
-
+.atras-buy {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 }
-.adelante, .atras{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: 15px;
+.adelante img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
 }
-
-.atras{
-    transform: rotateY(180deg);
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    color: rgb(29, 29, 29);
-    background-color: #fff;
-    box-shadow: none;
-    border: none;
+.tarjeta-wrap:hover .tarjeta {
+  transform: rotateY(180deg);
+  box-shadow: none;
+  border: none;
 }
-.atras-title{
-    width: 100%;
-    height: 20%;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
+.buyButton {
+  position: relative;
+  display: inline-block;
+  padding: 7.5px 15px;
+  color: black;
+  letter-spacing: 4px;
+  font-size: 24px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.2s;
+  background-color: rgb(240, 240, 240);
+  border:0;
 }
-.atras-description{
-    width: 100%;
-    height: 60%;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    flex-direction: column;    
-}
-.atras-buy{
-    width: 100%;
-    height: 20%;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-         
-}
-.adelante img{
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-
-}
-.tarjeta-wrap:hover .tarjeta{
-    transform: rotateY(180deg);
-    box-shadow: none;
-    border: none;
-}
-.buyButton{
-    position: relative;
-    display: inline-block;
-    padding: 7.5px 15px;
-    color:black;
-    letter-spacing: 4px;
-    font-size: 24px;
-    text-decoration: none;
-    overflow: hidden;
-    transition: 0.2s;
-}
-.buyButton:hover{
-    background-color: black;
-    color: white;
-    box-shadow: 0 0 5px black, 0 0 20px
-    black, 0 0 40px black;
-    transition-delay: 1s;
+.buyButton:hover {
+  background-color: black;
+  color: white;
+  box-shadow: 0 0 5px black, 0 0 20px black, 0 0 40px black;
+  transition-delay: 1s;
 }
 
 .buyButton span {
-    position: absolute;
-    display: block;
+  position: absolute;
+  display: block;
 }
-#span1{
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, black);
-}
-
-.buyButton:hover #span1{
-    left: 100%;
-    transition: 1s;
+#span1 {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, black);
 }
 
-#span3{
-    bottom: 0;
-    right: -100%;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(270deg, transparent, black);
+.buyButton:hover #span1 {
+  left: 100%;
+  transition: 1s;
 }
 
-.buyButton:hover #span3{
-    right: 100%;
-    transition: 1s;
-    transition-delay: 0.5s;
+#span3 {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, black);
 }
 
-#span2{
-    top: -100%;
-    right: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(180deg, transparent, black);
+.buyButton:hover #span3 {
+  right: 100%;
+  transition: 1s;
+  transition-delay: 0.5s;
 }
 
-.buyButton:hover #span2{
-    top: 100%;
-    transition: 1s;
-    transition-delay: 0.25s;
+#span2 {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, black);
 }
 
-#span4{
-    bottom: -100%;
-    left: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(360deg, transparent, black);
+.buyButton:hover #span2 {
+  top: 100%;
+  transition: 1s;
+  transition-delay: 0.25s;
 }
 
-.buyButton:hover #span4{
-    bottom: 100%;
-    transition: 1s;
-    transition-delay: 0.75s;
+#span4 {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, black);
+}
+
+.buyButton:hover #span4 {
+  bottom: 100%;
+  transition: 1s;
+  transition-delay: 0.75s;
 }

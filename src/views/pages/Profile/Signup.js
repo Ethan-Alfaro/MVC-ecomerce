@@ -11,6 +11,7 @@ export default class Signup extends Component {
       name: "",
       confirmPassword: "",
       loginErrors: "",
+      category: "Employee",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -20,23 +21,32 @@ export default class Signup extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
+
+    console.log(e.target.name);
   }
 
   handleSubmit(e) {
-    const { email, password, name, confirmPassword } = this.state;
+    window.history.pushState({}, document.title, "/login" + "");
+
+    const { email, password, confirmPassword, category, name } = this.state;
 
     axios
       .post("/register/register-user", {
         email: email,
         password: password,
         confirmPassword: confirmPassword,
+        category: category,
         name: name,
       })
-      .then((response) => {
-        console.log("response from signup", response);
+      .then(function (res) {
+        if (res.data.redirect == "/register") {
+          window.location = "/register";
+        } else if (res.data.redirect == "/login") {
+          window.location = "/login";
+        }
       })
-      .cath((error) => {
-        console.log("signup error", error);
+      .catch(function (err) {
+        window.location = "/login";
       });
 
     e.prevenDefault();
@@ -53,11 +63,12 @@ export default class Signup extends Component {
             Name
           </label>
           <input
+            name="name"
             type="text"
             className="form-control"
             id="exampleInputName1"
             placeholder="First name"
-            value={this.state.name}
+            value={this.state.value}
             onChange={this.handleChange}
             required
           />
@@ -65,12 +76,13 @@ export default class Signup extends Component {
             Email address
           </label>
           <input
+            name="email"
             type="email"
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
             placeholder="Enter email"
-            value={this.state.email}
+            value={this.state.value}
             onChange={this.handleChange}
             required
           />
@@ -78,11 +90,12 @@ export default class Signup extends Component {
             Password
           </label>
           <input
+            name="password"
             type="password"
             className="form-control"
             id="exampleInputPassword1"
             placeholder="Password"
-            value={this.state.password}
+            value={this.state.value}
             onChange={this.handleChange}
             required
           />
@@ -90,21 +103,25 @@ export default class Signup extends Component {
             Confirm password
           </label>
           <input
+            name="confirmPassword"
             type="password"
             className="form-control"
             id="exampleInputConfirmPassword1"
             placeholder="Confirm password"
-            value={this.state.confirmPassword}
+            value={this.state.value}
             onChange={this.handleChange}
             required
           />
           <label htmlFor="exampleSelect1" className="form-label mt-4">
             Select your role
           </label>
-          <select className="form-select" id="exampleSelect1">
-            <option>Choose one</option>
-            <option>Admin</option>
-            <option>Employee</option>
+          <select
+            className="form-select"
+            id="exampleSelect1"
+            name="category"
+            onChange={this.handleChange}>
+            <option value={this.state.value}>Employee</option>
+            <option value={this.state.value}>Admin</option>
           </select>
           <button type="submit" className="btn btn-dark mt-4">
             Signup

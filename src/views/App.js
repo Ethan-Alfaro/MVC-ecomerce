@@ -9,10 +9,10 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile/Profile";
 import Login from "./pages/Profile/Login";
 import Signup from "./pages/Profile/Signup";
-import UpdatePassword from "./pages/Profile/UpdatePassword";
 import Products from "./pages/Products";
 import ShoppingCart from "./pages/ShoppingCart";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import NoAuth from "./pages/noAuth/NoAuth";
 
 function App() {
   return (
@@ -38,7 +38,10 @@ function App() {
           <Route path="/products">
             <Products />
           </Route>
-          <Route path="/">
+          <Route path="/no-auth">
+            <NoAuth />
+          </Route>
+          <Route path="/" exact>
             <Home />
           </Route>
         </Switch>

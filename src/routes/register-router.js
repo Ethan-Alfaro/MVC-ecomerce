@@ -21,60 +21,57 @@ router.get("/", async (req, res) => {
 
 // create data to DB
 router.post("/register-user", async (req, res) => {
-  const {
-    userName,
-    userEmail,
-    userPassword,
-    userConfirmPassword,
-    userCategory,
-  } = req.body;
+  const { name, email, password, confirmPassword, category } = req.body;
+
   const errors = [];
+
   console.log(req.body);
-  if (userName.length <= 0 || userName.length == "") {
+  if (name.length <= 0 || name.length == "") {
     errors.push({ text: "Please insert your Name!" });
   }
-  if (userEmail <= 0 || userEmail.length == "") {
+  if (email <= 0 || email.length == "") {
     errors.push({ text: "Please Insert an Email!" });
   }
-  if (userPassword <= 0 || userPassword.length == "") {
+  if (password <= 0 || password.length == "") {
     errors.push({ text: "you must write a password!" });
   }
-  if (userPassword != userConfirmPassword) {
+  if (password != confirmPassword) {
     errors.push({ text: "Pasword do not match!" });
   }
-  if (userPassword.length < 4) {
+  if (password.length < 4) {
     errors.push({ text: "Password must be at least 4 characters" });
   }
   if (errors.length > 0) {
-    res.redirect("/", {message: "There are errors!"});
-    // res.render("/", {
-    //   errors,
-    //   userName,
-    //   userEmail,
-    //   userPassword,
-    //   userConfirmPassword,
-    //   userCategory
-    // });
+    redir = {
+      redirect: "/register",
+    };
+    res.json(redir);
   } else {
+    // funcion para renderizar la vista que necesitemos
+    function renderPage(url) {
+      redir = { redirect: url };
+      res.json(redir);
+    }
     // primero, buscamos si existe el email recogido desde req.body y lo comparamos con algun email que ya exista en la base de datos.
     // si no existe ese email, procedemos a guardar el nuevo usuario
-    const emailFound = await userModel.findOne({ email: userEmail });
-
+    const emailFound = await userModel.findOne({ email: email });
     if (emailFound) {
-      res.redirect("/", {message: "Email already used!"});
-      // req.flash("error_msg", "Email already used!");
+      console.log(emailFound);
+      let url = "/register";
+      renderPage(url);
+    } else {
+      const newUser = new userModel({
+        name: name,
+        email: email,
+        password: password,
+        category: category,
+      });
+      newUser.password = await newUser.encryptPassword(password);
+      console.log(newUser);
+      await newUser.save();
+      let url = "/login";
+      renderPage(url);
     }
-
-    const newUser = new userModel({
-      name: userName,
-      email: userEmail,
-      password: userPassword,
-      category: userCategory,
-    });
-    newUser.password = await newUser.encryptPassword(userPassword);
-    await newUser.save();
-    // req.flash("succes_msg", "Account succesfully saved!");
-    res.redirect("/", {message: "Account succesfully saved!"});
   }
 });
 

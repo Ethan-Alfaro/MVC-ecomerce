@@ -23,7 +23,6 @@ function Home() {
       <GuitarAnimation />
       <ParticlesBackground />
       <MainFooter />
-      
     </div>
   );
 }

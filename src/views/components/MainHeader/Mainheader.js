@@ -48,12 +48,10 @@ function MainHeader({ isLogged, isAdmin, userSession, isLoading }) {
               </NavLink>
             </>
           )}
-          {isLogged ? (
+          {isLogged && (
             <NavLink to="/cart">
               <i className="fas fa-shopping-cart text-light"></i>
             </NavLink>
-          ) : (
-            <Redirect to="/" />
           )}
           {isLogged && (
             <>

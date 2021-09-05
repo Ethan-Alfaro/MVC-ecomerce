@@ -26,6 +26,42 @@ function ProductTable() {
         console.error(err);
       });
   }
+
+  function deleteProduct(id) {
+    fetch(`/dashboard/delete-product/${id}`, {
+      method: "DELETE",
+      body: JSON.stringify({ id: id }),
+      headers: {
+        Accept: "application/json",
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  function editProduct(id) {
+    fetch(`/dashboard/edit-product/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({ id: id }),
+      headers: {
+        Accept: "application/json",
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
   return (
     <div>
       <table className="table table-secondary">
@@ -59,10 +95,16 @@ function ProductTable() {
                   />
                 </td>
                 <td>
-                  <Delete className="deleteProduct" />
+                  <button
+                    className="btn"
+                    onClick={() => deleteProduct(product._id)}>
+                    <Delete className="deleteProduct" />
+                  </button>
                 </td>
                 <td>
-                  <Edit className="editProduct" />
+                  <button className="btn" onClick={() => editProduct(product._id)}>
+                    <Edit className="editProduct" />
+                  </button>
                 </td>
               </tr>
             ))}

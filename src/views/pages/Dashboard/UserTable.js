@@ -30,6 +30,24 @@ function UserTable() {
       });
   }
 
+  function deleteUser(id) {
+    fetch(`/dashboard/delete-user/${id}`, {
+      method: "DELETE",
+      body: JSON.stringify({ id: id }),
+      headers: {
+        Accept: "application/json",
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
   function editUser(id) {
     fetch(`/dashboard/edit-user/${id}`, {
       method: "PUT",
@@ -69,7 +87,9 @@ function UserTable() {
                 <td>{user.email}</td>
                 <td>{user.category}</td>
                 <td>
-                  <Delete className="deleteUser" />
+                  <button className="btn" onClick={() => deleteUser(user._id)}>
+                    <Delete className="deleteUser" />
+                  </button>
                 </td>
                 <td>
                   <button className="btn" onClick={() => editUser(user._id)}>

@@ -36,21 +36,37 @@ router.put("/edit-user/:id", async (req, res) => {
   res.json({ message: "Edit user!" });
 });
 
-// Create data to DB
-// router.post("/create-product", async (req, res) => {
-//   const { name, description, price, stock, img } = req.body;
-//   console.log(req.body);
-//   newproduct = new productModel({
-//     name: name,
-//     description: description,
-//     price: price,
-//     stock: stock,
-//     img: img,
-//   });
-//   await newproduct.save();
-//   res.json({
-//     message: "Received!",
-//   });
-// });
+router.delete("/delete-user/:id", async (req, res) => {
+  const { id } = req.body;
+  // const newTask = { title: title, description: description };
+  // await Task.findByIdAndUpdate(req.params.id, newTask);
+  // res.json({
+  //   message: "updated!",
+  // });
+  console.log(id);
+  res.json({ message: "User Deleted!" });
+});
+
+router.put("/edit-product/:id", async (req, res) => {
+  const { id } = req.body;
+  // const newTask = { title: title, description: description };
+  // await Task.findByIdAndUpdate(req.params.id, newTask);
+  // res.json({
+  //   message: "updated!",
+  // });
+  console.log(id);
+  res.json({ message: "Edit product!" });
+});
+
+router.delete("/delete-product/:id", async (req, res) => {
+  const { id } = req.body;
+  // const newTask = { title: title, description: description };
+  // await Task.findByIdAndUpdate(req.params.id, newTask);
+  // res.json({
+  //   message: "updated!",
+  // });
+  console.log(id);
+  res.json({ message: "Product deleted!" });
+});
 
 module.exports = router;

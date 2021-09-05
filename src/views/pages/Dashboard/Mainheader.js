@@ -8,7 +8,7 @@ import "./mainheader.css";
 
 export default function Mainheader() {
   return (
-    <div className="mainHeader">
+    <div className="mainHeader pt-3">
       <FeatureInfo />
       <Charts
         data={userData}

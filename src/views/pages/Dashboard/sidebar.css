@@ -1,3 +1,8 @@
+.buttonUser {
+  border: 0;
+  background-color: none;
+}
+
 .sidebar {
   flex: 1;
   height: calc(100vh - 50px);

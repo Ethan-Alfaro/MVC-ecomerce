@@ -1,37 +1,20 @@
-import React, { useEffect, useState } from "react";
-import Topbar from "./Topbar";
+import React from "react";
 import Sidebar from "./Sidebar";
 import Mainheader from "./Mainheader";
+import UserTable from "./UserTable";
+import ProductTable from "./ProductTable";
 
 import "./dashboard.css";
 
 function Dashboard() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  function fetchUsers() {
-    fetch("/dashboard/get-users")
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-        setUsers(data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
-
   return (
-    <div>
-      <Topbar />
-      <div className="container">
-        <Sidebar />
+    <div className="container">
+      <Sidebar />
+
+      <div className="w-100">
         <Mainheader />
+        <UserTable />
+        <ProductTable />
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ router.get("/", verifyAuthentication, async (req, res) => {
   });
 });
 
-router.get("/get-users", verifyAuthentication, async (req, res) => {
+router.get("/get-users", async (req, res) => {
   const foundUsers = await userModel.find();
   res.json(foundUsers);
 });

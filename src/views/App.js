@@ -12,6 +12,7 @@ import Signup from "./pages/Profile/Signup";
 import Products from "./pages/Products";
 import ShoppingCart from "./pages/ShoppingCart";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Checkout from "./pages/Checkout/Checkout";
 import NoAuth from "./pages/noAuth/NoAuth";
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
           </Route>
           <Route path="/cart">
             <ShoppingCart />
+          </Route>
+          <Route path="/checkout">
+            <Checkout />
           </Route>
           <Route path="/products">
             <Products />

@@ -55,6 +55,7 @@ app.use("/login", require("./../routes/login-router"));
 app.use("/register", require("./../routes/register-router"));
 app.use("/dashboard", require("./../routes/dashboard-router"));
 app.use("/cart", require("./../routes/cart-router"));
+app.use("/checkout", require("./../routes/checkout-router"));
 
 // satic files
 app.use(express.static(path.join(__dirname, "/../../public")));

@@ -30,6 +30,24 @@ function UserTable() {
       });
   }
 
+  function editUser(id) {
+    fetch(`/dashboard/edit-user/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({ id: id }),
+      headers: {
+        Accept: "application/json",
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
   return (
     <div>
       <table className="table table-secondary">
@@ -46,7 +64,7 @@ function UserTable() {
         {isLoaded && (
           <tbody>
             {users.map((user) => (
-              <tr key={user.id}>
+              <tr key={user._id}>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.category}</td>
@@ -54,7 +72,9 @@ function UserTable() {
                   <Delete className="deleteUser" />
                 </td>
                 <td>
-                  <Edit className="editUser" />
+                  <button className="btn" onClick={() => editUser(user._id)}>
+                    <Edit className="editUser" />
+                  </button>
                 </td>
               </tr>
             ))}

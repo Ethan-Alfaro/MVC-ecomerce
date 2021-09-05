@@ -4,6 +4,14 @@ import "./producttable.css";
 
 function ProductTable() {
   const [productsArray, setProductsArray] = useState([]);
+  const [productIdClicked, setProductIdClicked] = useState("");
+  const [productNameClicked, setProductNameClicked] = useState("");
+  const [productDescriptionClicked, setProductDescriptionClicked] =
+    useState("");
+  const [productPriceClicked, setProductPriceClicked] = useState("");
+  const [productStockClicked, setProductStockClicked] = useState("");
+  const [productCategoryClicked, setProductCategoryClicked] = useState("");
+  const [productImageClicked, setProductImageClicked] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -26,13 +34,66 @@ function ProductTable() {
         console.error(err);
       });
   }
+
+  function deleteProduct(id) {
+    fetch(`/dashboard/delete-product/${id}`, {
+      method: "DELETE",
+      body: JSON.stringify({ id: id }),
+      headers: {
+        Accept: "application/json",
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
+  function editProduct(
+    id,
+    newProductName,
+    newProductDescription,
+    newproductPrice,
+    newProductStock,
+    newProductImage,
+    newProductCategory
+  ) {
+    fetch(`/dashboard/edit-product/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        id: id,
+        name: newProductName,
+        description: newProductDescription,
+        price: newproductPrice,
+        stock: newProductStock,
+        image: newProductImage,
+        category: newProductCategory,
+      }),
+      headers: {
+        Accept: "application/json",
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
   return (
     <div>
       <table className="table table-secondary">
         <thead>
           <tr>
-            <th scope="col">ID</th>
+            {/* <th scope="col">ID</th> */}
             <th scope="col">Name</th>
+            <th scope="col">Category</th>
             <th scope="col">Price</th>
             <th scope="col">Stock</th>
             <th scope="col">Image</th>
@@ -48,8 +109,9 @@ function ProductTable() {
           <tbody>
             {productsArray.map((product) => (
               <tr key={product._id}>
-                <td>{product._id}</td>
+                {/* <td>{product._id}</td> */}
                 <td>{product.name}</td>
+                <td>{product.category}</td>
                 <td>{product.price}&nbsp;€</td>
                 <td>{product.stock}&nbsp;unds</td>
                 <td>
@@ -59,16 +121,156 @@ function ProductTable() {
                   />
                 </td>
                 <td>
-                  <Delete className="deleteProduct" />
+                  <button
+                    className="btn btn-light"
+                    onClick={() => deleteProduct(product._id)}>
+                    <Delete className="deleteProduct" />
+                  </button>
                 </td>
                 <td>
-                  <Edit className="editProduct" />
+                  <button
+                    className="btn btn-light"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#openProductCanvas"
+                    aria-controls="openProductCanvas"
+                    onClick={() => {
+                      setProductIdClicked(product._id);
+                      setProductNameClicked(product.name);
+                      setProductDescriptionClicked(product.description);
+                      setProductPriceClicked(product.price);
+                      setProductStockClicked(product.stock);
+                      setProductImageClicked(product.img);
+                      setProductCategoryClicked(product.category);
+                    }}>
+                    <Edit className="editProduct" />
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         )}
       </table>
+      <section
+        className="offcanvas offcanvas-start"
+        data-bs-scroll="true"
+        tabIndex="-1"
+        id="openProductCanvas"
+        aria-labelledby="openProductCanvasLabel">
+        <div className="offcanvas-header">
+          <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+            Edit product
+          </h5>
+          <button
+            type="button"
+            className="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <div className="offcanvas-body">
+          <div className="w-100">
+            <div className="form-group w-100">
+              <label htmlFor="productName" className="form-label mt-4">
+                Product name
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="productName"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+                value={productNameClicked}
+                onChange={(event) => {
+                  return setProductNameClicked(event.target.value);
+                }}
+              />
+            </div>
+            <div className="form-group w-100">
+              <label htmlFor="productDescription" className="form-label mt-4">
+                Description:
+              </label>
+              <textarea
+                className="form-control"
+                id="productDescription"
+                onChange={(event) => {
+                  return setProductDescriptionClicked(event.target.value);
+                }}
+                rows="5"
+                value={productDescriptionClicked}></textarea>
+            </div>
+            <div className="form-group w-100">
+              <label htmlFor="productPrice" className="form-label mt-4">
+                Price
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                id="productPrice"
+                placeholder="Product price"
+                value={productPriceClicked}
+                onChange={(event) => {
+                  return setProductPriceClicked(event.target.value);
+                }}
+              />
+            </div>
+            <div className="form-group w-100">
+              <label htmlFor="productStock" className="form-label mt-4">
+                Stock
+              </label>
+              <input
+                type="number"
+                className="form-control"
+                id="productStock"
+                placeholder="Initial stock"
+                value={productStockClicked}
+                onChange={(event) => {
+                  return setProductStockClicked(event.target.value);
+                }}
+              />
+            </div>
+            <div className="form-group w-100">
+              <label htmlFor="productCategory" className="form-label mt-4">
+                Product category
+              </label>
+              <select
+                className="form-select"
+                id="productCategory"
+                onChange={(event) => {
+                  return setProductCategoryClicked(event.target.value);
+                }}
+                value={productCategoryClicked}>
+                <option value="Guitar">Guitar</option>
+                <option value="Ukelele">Ukelele</option>
+                <option value="Bass guitar">Bass guitar</option>
+              </select>
+            </div>
+            <div className="form-group w-100">
+              <label htmlFor="productFoto" className="form-label mt-4">
+                Product foto
+              </label>
+              <input className="form-control" type="file" id="formFile" />
+            </div>
+          </div>
+          <div className="d-grid gap-2 mt-3">
+            <button
+              type="button"
+              className="btn btn-lg btn-primary"
+              onClick={() =>
+                editProduct(
+                  productIdClicked,
+                  productNameClicked,
+                  productDescriptionClicked,
+                  productPriceClicked,
+                  productStockClicked,
+                  productImageClicked,
+                  productCategoryClicked
+                )
+              }>
+              Update user!
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

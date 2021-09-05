@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from "react";
-import Topbar from "./Topbar";
+import React from "react";
 import Sidebar from "./Sidebar";
 import Mainheader from "./Mainheader";
-import UserTable from "./userTable";
+import UserTable from "./UserTable";
+import ProductTable from "./ProductTable";
 
 import "./dashboard.css";
 
 function Dashboard() {
-
   return (
-    <div>
-      {/* <Topbar /> */}
-      <div className="container">
-        <Sidebar />
+    <div className="container">
+      <Sidebar />
+
+      <div className="w-100">
         <Mainheader />
-        <hr />
         <UserTable />
+        <ProductTable />
       </div>
     </div>
   );

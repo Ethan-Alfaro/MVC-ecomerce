@@ -356,6 +356,11 @@ body::-webkit-scrollbar-thumb {
 /*!*****************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./src/views/pages/Dashboard/sidebar.css ***!
   \*****************************************************************************************/
+.buttonUser {
+  border: 0;
+  background-color: none;
+}
+
 .sidebar {
   flex: 1;
   height: calc(100vh - 50px);

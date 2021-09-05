@@ -25,6 +25,17 @@ router.get("/get-users", async (req, res) => {
   res.json(foundUsers);
 });
 
+router.put("/edit-user/:id", async (req, res) => {
+  const { id } = req.body;
+  // const newTask = { title: title, description: description };
+  // await Task.findByIdAndUpdate(req.params.id, newTask);
+  // res.json({
+  //   message: "updated!",
+  // });
+  console.log(id);
+  res.json({ message: "Edit user!" });
+});
+
 // Create data to DB
 // router.post("/create-product", async (req, res) => {
 //   const { name, description, price, stock, img } = req.body;

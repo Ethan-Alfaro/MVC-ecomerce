@@ -1,0 +1,11 @@
+.productTableImg {
+  width: 55px;
+}
+
+.deleteProduct {
+  color: red;
+}
+
+.editProduct {
+  color: rgb(30, 170, 30);
+}

@@ -16,9 +16,9 @@ function FetchDB(WrappedComponent) {
     const [isLoading, setIsloading] = useState(true);
 
     useEffect(() => {
-      // checkIfSessionExist();
-      setIsLogged(true);
-      setIsAdmin(true);
+      checkIfSessionExist();
+      // setIsLogged(true);
+      // setIsAdmin(true);
     }, [isLoading]);
 
     function checkIfSessionExist() {

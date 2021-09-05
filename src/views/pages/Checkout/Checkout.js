@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import CreditCard from "../../components/CreditCard/CreditCard";
 
@@ -9,33 +9,27 @@ function Checkout() {
   const [cardExpirationDateAnimation, setCardExpirationDateAnimation] =
     useState("");
 
+  // useEffect(() => {
+  //   cardNameAnimation("Ethan");
+  // }, []);
+
   return (
     <div className="container-fluid d-flex flex-row justify-content-center align-items-center w-100 mt-3 gap-3">
       <form className="w-100">
-        <div className="form-group row">
-          <label for="staticEmail" className="col-sm-2 col-form-label">
-            Email
-          </label>
-          <div className="col-sm-10">
-            <input
-              type="text"
-              readonly=""
-              className="form-control-plaintext"
-              id="staticEmail"
-              value="email@example.com"
-            />
-          </div>
-        </div>
         <div className="form-group">
-          <label for="exampleInputEmail1" className="form-label mt-4">
-            Email address
+          <label htmlFor="exampleInputEmail1" className="form-label mt-4">
+            CardName
           </label>
           <input
             type="email"
             className="form-control"
             id="exampleInputEmail1"
+            onChange={(event) => {
+              return setCardNameAnimation(event.target.value);
+            }}
             aria-describedby="emailHelp"
-            placeholder="Enter email"
+            placeholder="Enter Your name"
+            value={cardNameAnimation}
           />
           <small id="emailHelp" className="form-text text-muted">
             We'll never share your email with anyone else.

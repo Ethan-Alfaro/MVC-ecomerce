@@ -26,7 +26,7 @@ export default function Sidebar() {
     <div className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
-          {/* <h3 className="sidebarTitle">Dashboard</h3> */}
+          <h3 className="sidebarTitle mt-3">Basic stats</h3>
           <ul className="sidebarList mt-3">
             <li className="sidebarlistItem active">
               <LineStyle className="iconsLeft" />
@@ -49,7 +49,8 @@ export default function Sidebar() {
               <button
                 type="button"
                 className="buttonUser"
-                onClick={() => handleUserClicked()}>
+                onClick={() => handleUserClicked()}
+              >
                 <Person className="iconsLeft" />
                 Users
               </button>

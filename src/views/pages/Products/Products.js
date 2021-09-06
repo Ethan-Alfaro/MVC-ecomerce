@@ -4,6 +4,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
+import FetchDB from "../../hoc/FetchDB";
+import { NavLink } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -17,8 +20,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Products() {
+function Products({ isLogged }) {
   const [productsArray, setProductsArray] = useState([]);
+
   const classes = useStyles();
   useEffect(() => {
     fetchProducts();
@@ -62,19 +66,25 @@ function Products() {
                       <br />
                       <p>Price: {product.price}</p>
                     </div>
-                    <div className="atras-buy">
-                      <form
-                        action={`/cart/add-product/${product._id}`}
-                        method="POST">
-                        <button type="submit" className="buyButton">
-                          <span id="span1"></span>
-                          <span id="span2"></span>
-                          <span id="span3"></span>
-                          <span id="span4"></span>
-                          Add to cart!
-                        </button>
-                      </form>
-                    </div>
+                    {!isLogged ? (
+                      <></>
+                    ) : (
+                      <>
+                        <div className="atras-buy">
+                          <form
+                            action={`/cart/add-product/${product._id}`}
+                            method="POST">
+                            <button type="submit" className="buyButton">
+                              <span id="span1"></span>
+                              <span id="span2"></span>
+                              <span id="span3"></span>
+                              <span id="span4"></span>
+                              Add to cart!
+                            </button>
+                          </form>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -86,4 +96,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default FetchDB(Products);

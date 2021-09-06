@@ -14,9 +14,13 @@ export default class Signup extends Component {
       category: "Employee",
       submitted: false,
       errorMessage: "",
+      newProductImage: "",
+      isSelected: false,
+      isLoaded: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFotoChange = this.handleFotoChange.bind(this);
   }
 
   handleChange(e) {
@@ -25,15 +29,32 @@ export default class Signup extends Component {
     });
   }
 
-  handleSubmit(e) {
-    const { email, password, confirmPassword, category, name } = this.state;
+  handleFotoChange() {
+    this.setState({
+      newProductImage: event.target.files[0],
+      isSelected: true,
+    });
+  }
 
+  handleSubmit(e) {
+    const {
+      email,
+      password,
+      confirmPassword,
+      category,
+      name,
+      newProductImage,
+      isLoaded,
+    } = this.state;
+
+    // create User on DB
     axios
       .post("/register/register-user", {
         email: email,
         password: password,
         confirmPassword: confirmPassword,
         category: category,
+        image: newProductImage.name,
         name: name,
       })
       .then((res) => {
@@ -62,11 +83,29 @@ export default class Signup extends Component {
         console.error(err);
       });
 
+    // // Upload foto to server
+    const formData = new FormData();
+    formData.append("userImage", newProductImage);
+
+    fetch("/register/upload-image", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        // location.reload();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
     e.preventDefault();
   }
 
   render() {
-    const { submitted, errorMessage } = this.state;
+    const { submitted, errorMessage, isSelected, newProductImage, isLoaded } =
+      this.state;
     return (
       <>
         {submitted ? (
@@ -151,17 +190,31 @@ export default class Signup extends Component {
                   onChange={this.handleChange}
                   required
                 />
-                <label htmlFor="exampleSelect1" className="form-label mt-4">
-                  Select your role
-                </label>
-                <select
-                  className="form-select"
-                  id="exampleSelect1"
-                  name="category"
-                  onChange={this.handleChange}>
-                  <option value={this.state.value}>Employee</option>
-                  <option value={this.state.value}>Admin</option>
-                </select>
+                <div className="form-group w-100">
+                  <label htmlFor="productFoto" className="form-label mt-4">
+                    Product foto
+                  </label>
+                  <input
+                    name="productFoto"
+                    onChange={this.handleFotoChange}
+                    className="form-control"
+                    type="file"
+                    id="formFile"
+                  />
+                </div>
+                {isSelected ? (
+                  <div className="mt-3 mb-3">
+                    <p>Filename: {newProductImage.name}</p>
+                    <p>Filetype: {newProductImage.type}</p>
+                    <p>Size in bytes: {newProductImage.size}</p>
+                    <p>
+                      lastModifiedDate:{" "}
+                      {newProductImage.lastModifiedDate.toLocaleDateString()}
+                    </p>
+                  </div>
+                ) : (
+                  <p>Select a file to show details</p>
+                )}
                 <button type="submit" className="btn btn-dark mt-4">
                   Signup
                 </button>

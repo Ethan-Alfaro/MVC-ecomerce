@@ -85,11 +85,23 @@ function MainHeader({ isLogged, isAdmin, userSession, isLoading }) {
                 </div>
               </div>
               <div className="user__picture--container">
-                <img
-                  className="user__picture"
-                  src="assets/user_pictures/profile_picture.png"
-                  alt="user-picture"
-                />
+                {userSession.image == null ? (
+                  <>
+                    <img
+                      className="user__picture"
+                      src="assets/user_pictures/profile_picture.png"
+                      alt="user-picture"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <img
+                      className="user__picture"
+                      src={`assets/user_pictures/${userSession.image}`}
+                      alt="user-picture"
+                    />
+                  </>
+                )}
               </div>
             </>
           )}

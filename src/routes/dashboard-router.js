@@ -92,7 +92,7 @@ router.put("/edit-product/:id", verifyAuthentication, async (req, res) => {
 
 router.delete("/delete-product/:id", verifyAuthentication, async (req, res) => {
   const { id } = req.body;
-  // await productModel.findByIdAndRemove(id);
+  await productModel.findByIdAndRemove(id);
   res.json({ message: "Product deleted!" });
 });
 

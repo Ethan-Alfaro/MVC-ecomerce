@@ -58,6 +58,7 @@ function ProductTable() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        location.reload();
       })
       .catch((err) => {
         console.error(err);
@@ -92,6 +93,7 @@ function ProductTable() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        location.reload();
       })
       .catch((err) => {
         console.error(err);

@@ -19,8 +19,14 @@ router.get("/", async (req, res) => {
 router.get("/get-user", (req, res) => {
   // console.log(req.user);
   if (req.user) {
-    const { name, email, category, _id } = req.user;
-    const user = { name: name, email: email, category: category, id: _id };
+    const { name, email, image, category, _id } = req.user;
+    const user = {
+      name: name,
+      image: image,
+      email: email,
+      category: category,
+      id: _id,
+    };
     res.json(user);
   } else {
     res.json({ message: "You are not logged in" });

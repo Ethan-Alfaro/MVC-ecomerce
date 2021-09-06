@@ -11,17 +11,16 @@ passport.use(
       // comprobamos que exista el usuario mediante el Email entregado en el formulario.
       const userFound = await userModel.findOne({ email: email });
       if (!userFound) {
-      	// si no existe el email, retornamos false
+        // si no existe el email, retornamos false
         return done(null, false, { message: "No user found!" });
       } else {
-      	// si existe el usuario, comprobamos que la contraseña entregada, mediante el formulario, coincide con la que tenemos en la base de datos
+        // si existe el usuario, comprobamos que la contraseña entregada, mediante el formulario, coincide con la que tenemos en la base de datos
         const match = await userFound.matchPassword(password);
         if (match) {
-      		// si coincide la contraseña, retornamos la info del usuario encontrado en la DB
-          // console.log(userFound);
+          // si coincide la contraseña, retornamos la info del usuario encontrado en la DB
           return done(null, userFound);
         } else {
-      		// si no coincide la contraseña, retornamos false
+          // si no coincide la contraseña, retornamos false
           return done(null, false, { message: "Incorrect password!" });
         }
       }

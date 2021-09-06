@@ -1,1 +1,1 @@
-export {defaut} from "./NoAuth.js";
+export { defaut } from "./NoAuth.js";

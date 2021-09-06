@@ -10,15 +10,15 @@ function Checkout() {
     useState("");
 
   return (
-    <div className="container-fluid d-flex flex-row justify-content-center align-items-center w-100 mt-5 gap-3">
-      <form className="w-100">
-        <div className="form-group">
+    <div className="container d-flex flex-row justify-content-center align-items-center w-100 mt-5 gap-5">
+      <form className="w-100 ms-5">
+        <div className="form-group w-100">
           <label htmlFor="exampleInputName" className="form-label mt-4">
             Card Name
           </label>
           <input
             type="text"
-            name="text"
+            name="exampleInputName"
             className="form-control"
             id="exampleInputName"
             onChange={(event) => {
@@ -30,13 +30,13 @@ function Checkout() {
             maxLength="50"
           />
         </div>
-        <div className="form-group">
+        <div className="form-group w-100 ">
           <label htmlFor="exampleInputCardNumber" className="form-label mt-4">
             Card Number
           </label>
           <input
-            type="text"
-            name="text"
+            type="number"
+            name="exampleInputCardNumber"
             className="form-control"
             id="exampleInputCardNumber"
             onChange={(event) => {
@@ -47,12 +47,13 @@ function Checkout() {
             maxLength="16"
           />
         </div>
-        <div className="form-group">
+        <div className="form-group w-100">
           <label htmlFor="exampleExpiryNumber" className="form-label mt-4">
             Expiry Date
           </label>
           <input
             type="password"
+            name="exampleExpiryNumber"
             className="form-control"
             id="exampleExpiryNumber"
             onChange={(event) => {
@@ -63,13 +64,13 @@ function Checkout() {
             maxLength="5"
           />
         </div>
-        <div className="form-group">
+        <div className="form-group w-100">
           <label htmlFor="exampleCvvCardNumber" className="form-label mt-4">
             CVV
           </label>
           <input
             type="number"
-            name="number"
+            name="exampleCvvCardNumber"
             className="form-control"
             id="exampleCvvCardNumber"
             onChange={(event) => {
@@ -83,7 +84,7 @@ function Checkout() {
         </div>
       </form>
 
-      <div className="h-75 w-100 pe-3">
+      <div className="h-75 w-100 pe-3 ms-5">
         <div>
           <CreditCard
             cardNameAnimation={cardNameAnimation}

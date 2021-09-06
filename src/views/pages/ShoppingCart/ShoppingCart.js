@@ -60,8 +60,9 @@ function ShoppingCart({ isLoading, userSession }) {
         </section>
       </section>
       <NavLink to="/checkout">
-        
-        <button className="btn btn-dark" id="checkoutButton">Checkout</button>
+        <button className="btn btn-dark" id="checkoutButton">
+          Checkout
+        </button>
       </NavLink>
     </div>
   );

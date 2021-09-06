@@ -3,12 +3,46 @@ const router = Router();
 const express = require("express");
 const path = require("path");
 const app = express();
+const multer = require("multer");
 
 const userModel = require("../models/user-model");
 
 // read DB
 app.set("PUBLIC_DIR", path.join(__dirname, "/../../public"));
 app.set("HTML_FILE", path.join(app.get("PUBLIC_DIR"), "index.html"));
+
+const imageStorage = multer.diskStorage({
+  // Destination to store image
+  destination: (req, file, cb) => {
+    cb(null, app.get("PUBLIC_DIR") + "/assets/user_pictures/");
+  },
+  filename: (req, file, cb) => {
+    // file.fieldname is name of the field (image)
+    // path.extname get the uploaded file extension
+    cb(
+      null,
+      // file.fieldname + "_" + Date.now() + path.extname(file.originalname)
+      file.originalname
+    );
+    console.log(file);
+  },
+});
+
+const upload = multer({
+  storage: imageStorage,
+  fileFilter: (req, file, cb) => {
+    if (
+      file.mimetype == "image/png" ||
+      file.mimetype == "image/jpg" ||
+      file.mimetype == "image/jpeg"
+    ) {
+      cb(null, true);
+    } else {
+      cb(null, false);
+      return cb(new Error("Only .png, .jpg and .jpeg format allowed!"));
+    }
+  },
+});
 
 // Sending the main page
 router.get("/", async (req, res) => {
@@ -21,7 +55,7 @@ router.get("/", async (req, res) => {
 
 // create data to DB
 router.post("/register-user", async (req, res) => {
-  const { name, email, password, confirmPassword, category } = req.body;
+  const { name, email, image, password, confirmPassword, category } = req.body;
 
   const errors = [];
 
@@ -53,6 +87,7 @@ router.post("/register-user", async (req, res) => {
         name: name,
         email: email,
         password: password,
+        image: image,
         category: category,
       });
       newUser.password = await newUser.encryptPassword(password);
@@ -61,6 +96,12 @@ router.post("/register-user", async (req, res) => {
       res.json({ message: "User saved!" });
     }
   }
+});
+
+router.post("/upload-image", upload.single("userImage"), async (req, res) => {
+  res.json({
+    message: "Image Saved!",
+  });
 });
 
 module.exports = router;

@@ -19,6 +19,7 @@ router.get("/", verifyAuthentication, async (req, res) => {
       res.status(500).send(err);
     }
   });
+  
 });
 
 router.get("/get-user/:id", verifyAuthentication, async (req, res) => {
